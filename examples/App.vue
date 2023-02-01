@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import HelloWorld from './components/HelloWorld.vue'
-import ButtonBase from '../packages/components/buttons/src/ButtonBase.vue'
+import ButtonBase from 'components/buttons'
 // import ButtonBase from '../dist/components/buttons';
 </script>
 
@@ -14,7 +14,7 @@ import ButtonBase from '../packages/components/buttons/src/ButtonBase.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" /> -->
-  <ButtonBase></ButtonBase>
+  <ButtonBase />
 </template>
 
 <style scoped>

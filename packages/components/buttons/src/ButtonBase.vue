@@ -7,6 +7,10 @@ function fn () {
 </script>
 
 <template>
-  <div class="h-20 w-60 border bg-slate-300" @click="fn">click me:{{ zero }}</div>
-
+  <div
+    class="h-20 w-60 border bg-slate-300"
+    @click="fn"
+  >
+    click me:{{ zero }}
+  </div>
 </template>
