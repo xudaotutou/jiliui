@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import HelloWorld from './components/HelloWorld.vue'
-import ButtonBase from '../packages/components/buttons/src/ButtonBase.vue';
+import ButtonBase from '../packages/components/buttons/src/ButtonBase.vue'
 // import ButtonBase from '../dist/components/buttons';
 </script>
 

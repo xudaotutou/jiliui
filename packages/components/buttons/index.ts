@@ -1,9 +1,9 @@
 
-import Base from "./src/ButtonBase.vue"
-export default Base;
+import Base from './src/ButtonBase.vue'
+export default Base
 
-declare module "vue" {
+declare module 'vue' {
   export interface GlobalComponents {
-    Base: typeof Base;
+    Base: typeof Base
   }
 }
