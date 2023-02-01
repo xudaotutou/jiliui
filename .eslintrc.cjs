@@ -1,22 +1,36 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "vue/setup-compiler-macros": true
   },
-  extends: [
-    'plugin:vue/vue3-essential',
-    'standard-with-typescript'
+  "extends": [
+    // "plugin:vue/vue3-essential",
+    // "standard-with-typescript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:tailwindcss/recommended",
+    "plugin:vue/vue3-recommended"
   ],
-  overrides: [
-    './examples/**/*'
+  "overrides": [
+    {
+      "files": ["*.vue"],
+      "parser": "vue-eslint-parser"
+    }
   ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module'
+  "ignorePatterns": [],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": {
+      "ts":"@typescript-eslint/parser"
+    },
+    "sourceType": "module",
   },
-  plugins: [
-    'vue'
+  "plugins": [
+    "vue",
+    "@typescript-eslint"
   ],
-  rules: {
+  "root": true,
+  "rules": {
   }
 }

@@ -14,16 +14,15 @@
     "noEmit": true,
     "types": ["vitest/globals"],
     "paths": {
-      "@":["./packages"]
+      "~/*":["./packages/*"],
+      "components/*":["./packages/components/*"],
+      "~~/*":["./examples/*"]
     }
   },
   "include": [
-    "examples/**/*.ts",
-    "examples/**/*.d.ts",
-    "examples/**/*.tsx",
-    "examples/**/*.vue",
-    "packages/**/*",
-    "test/**/*.ts"
+    "examples",
+    "packages",
+    "test"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
