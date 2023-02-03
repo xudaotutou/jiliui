@@ -1,4 +1,4 @@
-import Base from './src/ButtonBase.vue'
+import Base from './src/SliderBase.vue'
 export default Base
 declare module 'vue' {
   export interface GlobalComponents {

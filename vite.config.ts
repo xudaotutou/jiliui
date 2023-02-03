@@ -6,7 +6,7 @@ import path from "path";
 export default defineConfig({
   build: {
     minify: false,
-    cssCodeSplit:true,
+    cssCodeSplit: true,
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: path.resolve(__dirname, "./packages/index.ts"),
