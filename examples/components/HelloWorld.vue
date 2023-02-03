@@ -1,3 +1,4 @@
+<!-- eslint-disable tailwindcss/no-custom-classname -->
 <script setup lang="ts">
 
 import { ref } from 'vue'
@@ -7,7 +8,7 @@ type Props = {
 }
 
 withDefaults(defineProps<Props>(), {
-  msg: "hello world"
+  msg: 'hello world'
 })
 
 const count = ref(0)
@@ -15,8 +16,6 @@ const count = ref(0)
 
 <template>
   <h1>{{ msg }}</h1>
-
-  <div class="card">
     <button
       type="button"
       @click="count++"
@@ -45,13 +44,7 @@ const count = ref(0)
     >Volar</a>
     in your IDE for a better DX
   </p>
-  <p class="read-the-docs">
+  <p class="">
     Click on the Vite and Vue logos to learn more
   </p>
 </template>
-
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
