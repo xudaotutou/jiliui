@@ -9,8 +9,9 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: path.resolve(__dirname, "packages/index.ts"),
-      name: "jiliui",
+      name: "jili",
       formats: ["es",'umd'],
+      fileName: 'index'
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
@@ -29,7 +30,7 @@ export default defineConfig({
   resolve:{
     alias:{
       "~":path.resolve(__dirname,"./packages"),
-      "component":path.resolve(__dirname,"./packages/components"),
+      "components":path.resolve(__dirname,"./packages/components"),
       "~~":path.resolve(__dirname, "./examples")
     }
   },

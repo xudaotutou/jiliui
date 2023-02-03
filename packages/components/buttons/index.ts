@@ -1,7 +1,4 @@
+import { withInstall } from '~/utils/install'
 import Base from './src/ButtonBase.vue'
-export default Base
-declare module 'vue' {
-  export interface GlobalComponents {
-    Base: typeof Base
-  }
-}
+Base.name = "Base"
+export default withInstall(Base)
