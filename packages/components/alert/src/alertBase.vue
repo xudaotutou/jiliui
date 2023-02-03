@@ -33,8 +33,8 @@
         title: "",
         description: '',
         closable: true,
-        closeText:'',
-        type:'',
+        closeText:'关闭',
+        type:'success',
         showIcon:false,
         center:false,
         effect:'light'
