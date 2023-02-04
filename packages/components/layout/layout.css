@@ -1,6 +1,0 @@
-.basis-1\/12 .basis-offset-1\/12-rev {
-  @apply before:contents[" "] after:basis-1/12
-}
-.basis-1\/12 .basis-offset-1\/12-rev {
-  @apply after:contents[" "] after:basis-1/12
-}

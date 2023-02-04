@@ -1,4 +1,4 @@
-import "./style.css"
+// import "./style.css"
 import type { App } from "vue"; // 只是导入类型不是导入App的值
 
 

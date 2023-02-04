@@ -1,4 +1,6 @@
 import { withInstall } from '~/utils/install'
-import Base from './src/ButtonBase.vue'
-Base.name = "Base"
-export default withInstall(Base)
+import _JButtonBase from './src/JButtonBase.vue'
+// Base.name = "MyButton"
+// export default withInstall(Base)
+export const JButtonBase = withInstall(_JButtonBase)
+export default JButtonBase

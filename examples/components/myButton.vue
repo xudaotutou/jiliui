@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import myButton from '../../packages/components/buttons'
+// import {JButtonBase} from '../../dist'
+// import ui from '../../dist'
 defineProps<{ msg: string }>()
 </script>
 
 <template>
   <h1>Button组件</h1>
-  <myButton />
+  <!-- <JButtonBase /> -->
 </template>
 
 <style scoped>
