@@ -24,11 +24,18 @@ export default defineConfig({
         },
       },
     },
+    
+  },
+  resolve:{
+    alias:{
+      "~":path.resolve(__dirname,"./packages"),
+      "components":path.resolve(__dirname,"./packages/components"),
+      "~~":path.resolve(__dirname, "./examples")
+    }
   },
   test: {
     globals: true,
     environment: 'happy-dom',
-
   },
   plugins: [
     vue(),
@@ -41,4 +48,5 @@ export default defineConfig({
       tsConfigFilePath: "./tsconfig.json",
     }),
   ],
+  
 });
