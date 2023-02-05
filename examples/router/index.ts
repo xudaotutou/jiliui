@@ -1,5 +1,4 @@
 import {createRouter,createWebHistory,RouteRecordRaw} from 'vue-router'
-const Button = ()=> import('../components/myButton.vue')
 const routes :RouteRecordRaw[] = [
     {
         path:'/',
@@ -7,7 +6,10 @@ const routes :RouteRecordRaw[] = [
     },
     {
         path: '/button',
-        component: Button
+        component: ()=> import('../components/myButton.vue')
+    },{
+        path:'/layout',
+        component: ()=>import("../components/myLayout.vue")
     }
    
 ]
