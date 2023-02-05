@@ -14,10 +14,7 @@ specifiers:
   eslint-plugin-vue: ^9.9.0
   happy-dom: ^8.2.2
   husky: ^8.0.3
-<<<<<<< HEAD
-=======
   jiliui: 'link:'
->>>>>>> 35503b4606fceca3370aafafbaa70cd6f9ed0d4c
   lint-staged: ^13.1.0
   postcss: ^8.4.21
   tailwindcss: ^3.2.4
@@ -28,10 +25,7 @@ specifiers:
   vitest: ^0.28.3
   vue: ^3.2.45
   vue-eslint-parser: ^9.1.0
-<<<<<<< HEAD
-=======
   vue-router: ^4.1.6
->>>>>>> 35503b4606fceca3370aafafbaa70cd6f9ed0d4c
   vue-tsc: ^1.0.11
 
 dependencies:
@@ -61,10 +55,7 @@ devDependencies:
   vitepress: 1.0.0-alpha.43
   vitest: 0.28.3_happy-dom@8.2.2
   vue-eslint-parser: 9.1.0_eslint@8.33.0
-<<<<<<< HEAD
-=======
   vue-router: registry.npmmirror.com/vue-router/4.1.6_vue@3.2.45
->>>>>>> 35503b4606fceca3370aafafbaa70cd6f9ed0d4c
   vue-tsc: 1.0.24_typescript@4.9.4
 
 packages:
@@ -1074,26 +1065,6 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: registry.npmmirror.com/fsevents/2.3.2
-    dev: true
-
-  /clean-stack/2.2.0:
-    resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
-    engines: {node: '>=6'}
-    dev: true
-
-  /cli-cursor/3.1.0:
-    resolution: {integrity: sha512-I/zHAwsKf9FqGoXM4WWRACob9+SNukZTd94DWF57E4toouRulbCxcUh6RKUEOQlYTHJnzkPMySvPNaaSLNfLZw==}
-    engines: {node: '>=8'}
-    dependencies:
-      restore-cursor: 3.1.0
-    dev: true
-
-  /cli-truncate/2.1.0:
-    resolution: {integrity: sha512-n8fOixwDD6b/ObinzTrp1ZKFzbgvKZvuz/TvejnLn1aQfC6r52XEx85FmuC+3HI+JM7coBRXUvNqEU2PHVrHpg==}
-    engines: {node: '>=8'}
-    dependencies:
-      slice-ansi: 3.0.0
-      string-width: 4.2.3
     dev: true
 
   /clean-stack/2.2.0:

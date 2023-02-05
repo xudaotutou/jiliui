@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-
-import Base from './src/ButtonBase.vue'
-export default Base
-
-declare module 'vue' {
-=======
 import Base from "./src/ButtonBase.vue";
 export default Base;
 
@@ -16,7 +9,6 @@ Base.install =(Vue:
   Vue.component('MyButton', Base)
 }
 declare module "vue" {
->>>>>>> 35503b4606fceca3370aafafbaa70cd6f9ed0d4c
   export interface GlobalComponents {
     Base: typeof Base
   }

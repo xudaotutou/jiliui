@@ -12,10 +12,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-<<<<<<< HEAD
-    "preview": "vite preview",
-=======
->>>>>>> 35503b4606fceca3370aafafbaa70cd6f9ed0d4c
     "test": "vitest run",
     "test:w": "vitest -w",
     "coverage": "vitest run --coverage",
@@ -23,13 +19,8 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "prepare": "husky install",
-<<<<<<< HEAD
-    "lint": "eslint ./packages",
-    "lint:fix": "eslint ./packages --fix"
-=======
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
->>>>>>> 35503b4606fceca3370aafafbaa70cd6f9ed0d4c
   },
   "dependencies": {
     "jiliui": "link:",
@@ -58,10 +49,7 @@
     "vitepress": "1.0.0-alpha.43",
     "vitest": "^0.28.3",
     "vue-eslint-parser": "^9.1.0",
-<<<<<<< HEAD
-=======
     "vue-router": "^4.1.6",
->>>>>>> 35503b4606fceca3370aafafbaa70cd6f9ed0d4c
     "vue-tsc": "^1.0.11"
   }
 }
