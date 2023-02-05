@@ -15,7 +15,7 @@
     </template>
     
     <script setup lang="ts">
-    import { ref,defineProps,toRefs,computed,defineEmits,withDefaults } from 'vue'
+    import { ref,toRefs,computed,withDefaults } from 'vue'
     const visible = ref(true)
     interface Props {
         title: string,
