@@ -5,7 +5,7 @@
 
 <template>
   <div class="flex">
-    <div class="w-offset-12-1 w-1/12">
+    <div class="w-offset-1/6 w-1/12">
       01
     </div>
     <div class="w-1/12">

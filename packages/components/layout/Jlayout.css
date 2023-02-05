@@ -1,26 +1,26 @@
   /* 基于margin实现 */
-.w-offset-12-1 {
+.w-offset-12 {
   margin-left: 8.333333%;
 }
-.-w-offset-12-1 {
+.-w-offset-12 {
   margin-right: 8.333333%;
 }
-.w-offset-6-1 {
+.w-offset-6 {
   margin-left: 16.666667%;
 }
-.-w-offset-6-1 {
+.-w-offset-6 {
   margin-right: 16.666667%;
 }
-.w-offset-3-1 {
+.w-offset-3 {
   margin-left: 33.333333%;
 }
-.-w-offset-3-1 {
+.-w-offset-3 {
   margin-right: 33.333333%;
 }
-.w-offset-4-1 {
+.w-offset-4 {
   margin-left: 25%;
 }
-.-w-offset-4-1 {
+.-w-offset-4 {
   margin-right: 25%;
 }
 /* 基于伪类实现 */
