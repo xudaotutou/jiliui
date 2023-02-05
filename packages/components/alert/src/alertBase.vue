@@ -1,18 +1,36 @@
 <template>
-    <div class="alert" :class="alertType">
-      <div class="alertContent"  role="alert" v-show="visible">
-        <div class="title" :class="[isCenter,isBold]">{{ title }}</div>
-        <template v-if="closable">
-          <span class="rightHandler"  @click="handleClose">{{ closeText }}</span> 
-        </template>
-       </div>
-       <p class="description" :class="isCenter">
-        <slot>
-        {{ description }}
-        </slot>
-        </p>
+  <div
+    class="alert"
+    :class="alertType"
+  >
+    <div
+      v-show="visible"
+      class="alertContent"
+      role="alert"
+    >
+      <div
+        class="title"
+        :class="[isCenter,isBold]"
+      >
+        {{ title }}
+      </div>
+      <template v-if="closable">
+        <span
+          class="rightHandler"
+          @click="handleClose"
+        >{{ closeText }}</span> 
+      </template>
     </div>
-    </template>
+    <p
+      class="description"
+      :class="isCenter"
+    >
+      <slot>
+        {{ description }}
+      </slot>
+    </p>
+  </div>
+</template>
     
     <script setup lang="ts">
     import { ref,toRefs,computed,withDefaults } from 'vue'
