@@ -5,6 +5,7 @@
     "vue/setup-compiler-macros": true
   },
   "extends": [
+<<<<<<< HEAD
     "eslint:recommended",
     "plugin:vue/essential",
     "plugin:@typescript-eslint/recommended"
@@ -14,10 +15,42 @@
     "ecmaVersion": "latest",
     "sourceType": "module",
     "parser": "@typescript-eslint/parser"
+=======
+    "plugin:vue/vue3-essential",
+    // "standard-with-typescript",
+    "plugin:tailwindcss/recommended",
+    "plugin:vue/vue3-recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["*.vue"],
+      "parser": "vue-eslint-parser"
+    }
+  ],
+  "ignorePatterns": [],
+  "parserOptions": {
+    "parser": {
+      // Script parser for `<script>`
+      "js": "espree",
+
+      // Script parser for `<script lang="ts">`
+      "ts": "@typescript-eslint/parser"
+      // Script parser for vue directives (e.g. `v-if=` or `:attribute=`)
+      // and vue interpolations (e.g. `{{variable}}`).
+      // If not specified, the parser determined by `<script lang ="...">` is used.
+      // "<template>": "espree"
+    }
+>>>>>>> 574243a2e881fe8318bcf6e7e0255342654848f1
   },
   "plugins": [
-    "vue"
+    "vue",
+    "@typescript-eslint"
   ],
+<<<<<<< HEAD
+=======
+  "parser": "vue-eslint-parser",
+  "root": true,
+>>>>>>> 574243a2e881fe8318bcf6e7e0255342654848f1
   "rules": {
     "semi": [
       "warn",

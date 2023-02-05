@@ -1,9 +1,6 @@
-
-import Base from './src/ButtonBase.vue'
-export default Base
-
-declare module 'vue' {
-  export interface GlobalComponents {
-    Base: typeof Base
-  }
-}
+import { withInstall } from '~/utils/install'
+import _JButtonBase from './src/JButtonBase.vue'
+// Base.name = "MyButton"
+// export default withInstall(Base)
+export const JButtonBase = withInstall(_JButtonBase)
+export default JButtonBase
