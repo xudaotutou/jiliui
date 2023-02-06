@@ -7,12 +7,18 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/button',
         component: () => import('../components/myButton.vue')
-    }, {
+    }, 
+    {
         path: '/layout',
         component: () => import("../components/myLayout.vue")
-    }, {
+    }, 
+    {
         path: '/slider',
         component: () => import("../components/mySlider.vue")
+    },
+    {
+        path: '/scrollbar',
+        component: () => import("../components/myScrollbar.vue")
     }
 
 ]
