@@ -1,21 +1,24 @@
-import {createRouter,createWebHistory,RouteRecordRaw} from 'vue-router'
-const routes :RouteRecordRaw[] = [
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+const routes: RouteRecordRaw[] = [
     {
-        path:'/',
+        path: '/',
         redirect: '/button'
     },
     {
         path: '/button',
-        component: ()=> import('../components/myButton.vue')
-    },{
-        path:'/layout',
-        component: ()=>import("../components/myLayout.vue")
+        component: () => import('../components/myButton.vue')
+    }, {
+        path: '/layout',
+        component: () => import("../components/myLayout.vue")
+    }, {
+        path: '/slider',
+        component: () => import("../components/mySlider.vue")
     }
-   
+
 ]
-const router  = createRouter({
+const router = createRouter({
     routes,
-    history:createWebHistory()
+    history: createWebHistory()
 })
 
 export default router
