@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import scrollbar from "../../packages/components/scroll-bar/src/scroll-bar.vue";
+import scrollbar from "../../packages/components/scrollbar/src/scrollbarBase.vue";
 import { ref } from "vue";
 export default {
   components: {

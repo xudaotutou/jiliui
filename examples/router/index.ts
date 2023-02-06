@@ -1,6 +1,6 @@
 import {createRouter,createWebHistory,RouteRecordRaw} from 'vue-router'
-const Button = ()=> import('../components/my-button.vue')
-const Scrollbar = ()=> import('../components/scroll-bar.vue')
+const Button = ()=> import('../components/myButton.vue')
+const Scrollbar = ()=> import('../components/myScrollbar.vue')
 const routes :RouteRecordRaw[] = [
     {
         path:'/',
