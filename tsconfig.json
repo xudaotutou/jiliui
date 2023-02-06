@@ -13,10 +13,12 @@
     "skipLibCheck": true,
     "noEmit": true,
     "types": ["vitest/globals"],
+    "baseUrl": ".",
     "paths": {
       "~/*":["./packages/*"],
       "components/*":["./packages/components/*"],
-      "~~/*":["./examples/*"]
+      "~~/*":["./examples/*"],
+      "tailwindcss/plugin": ["node_modules/tailwindcss/plugin"]
     }
   },
   "include": [

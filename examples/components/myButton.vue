@@ -4,10 +4,8 @@ defineProps<{ msg: string }>()
 </script>
 
 <template>
-  <div>
-    <h1>Button组件</h1>
-    <mybutton />
-  </div>
+  <h1>Button组件</h1>
+  <!-- <JButtonBase /> -->
 </template>
 
 <style scoped>

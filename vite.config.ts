@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config"
+import { defineConfig } from "vitest/config";
 import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
 import path from "path";
@@ -6,11 +6,13 @@ import path from "path";
 export default defineConfig({
   build: {
     minify: false,
+    cssCodeSplit: true,
     lib: {
       // Could also be a dictionary or array of multiple entry points
-      entry: path.resolve(__dirname, "packages/index.ts"),
+      entry: path.resolve(__dirname, "./packages/index.ts"),
       name: "jiliui",
-      formats: ["es",'umd'],
+      formats: ["es", "cjs"],
+      fileName: "index",
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
@@ -21,32 +23,31 @@ export default defineConfig({
         // for externalized deps
         globals: {
           vue: "Vue",
-        },
+        }
       },
     },
-    
   },
-  resolve:{
-    alias:{
-      "~":path.resolve(__dirname,"./packages"),
-      "components":path.resolve(__dirname,"./packages/components"),
-      "~~":path.resolve(__dirname, "./examples")
-    }
+  resolve: {
+    alias: {
+      "~": path.resolve(__dirname, "packages"),
+      "components": path.resolve(__dirname, "packages/components"),
+      "~~": path.resolve(__dirname, "examples"),
+    },
   },
   test: {
     globals: true,
-    environment: 'happy-dom',
+    environment: "happy-dom",
   },
   plugins: [
     vue(),
     dts({
       tsConfigFilePath: "./tsconfig.json",
-      exclude:["./examples"]
+      exclude: ["./examples"],
     }),
     dts({
       outputDir: "types",
       tsConfigFilePath: "./tsconfig.json",
+      exclude: ["./examples"],
     }),
   ],
-  
 });

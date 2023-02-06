@@ -1,24 +1,30 @@
-import {createRouter,createWebHistory,RouteRecordRaw} from 'vue-router'
-const Button = ()=> import('../components/myButton.vue')
-const Scrollbar = ()=> import('../components/myScrollbar.vue')
-const routes :RouteRecordRaw[] = [
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+const routes: RouteRecordRaw[] = [
     {
-        path:'/',
+        path: '/',
         redirect: '/button'
     },
     {
         path: '/button',
-        component: Button
+        component: () => import('../components/myButton.vue')
+    }, 
+    {
+        path: '/layout',
+        component: () => import("../components/myLayout.vue")
+    }, 
+    {
+        path: '/slider',
+        component: () => import("../components/mySlider.vue")
     },
     {
-        path:'/scrollbar',
-        component: Scrollbar
+        path: '/scrollbar',
+        component: () => import("../components/myScrollbar.vue")
     }
-   
+
 ]
-const router  = createRouter({
+const router = createRouter({
     routes,
-    history:createWebHistory()
+    history: createWebHistory()
 })
 
 export default router
