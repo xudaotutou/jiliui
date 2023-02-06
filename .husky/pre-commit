@@ -1,8 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-
-<<<<<<< HEAD
-pnpm test && pnpm lint
-=======
 pnpm test && pnpm lint:fix
->>>>>>> 35503b4606fceca3370aafafbaa70cd6f9ed0d4c
+

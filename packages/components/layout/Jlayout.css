@@ -1,0 +1,50 @@
+  /* 基于margin实现 */
+.w-offset-12-1 {
+  margin-left: 8.333333%;
+}
+.-w-offset-12-1 {
+  margin-right: 8.333333%;
+}
+.w-offset-6-1 {
+  margin-left: 16.666667%;
+}
+.-w-offset-6-1 {
+  margin-right: 16.666667%;
+}
+.w-offset-3-1 {
+  margin-left: 33.333333%;
+}
+.-w-offset-3-1 {
+  margin-right: 33.333333%;
+}
+.w-offset-4-1 {
+  margin-left: 25%;
+}
+.-w-offset-4-1 {
+  margin-right: 25%;
+}
+/* 基于伪类实现 */
+/* .-w-offset-1\/12-s {
+  @apply after:w-1/2 after:inline-block w-1/6
+}
+.w-offset-1\/12-s {
+  @apply before::w-1/2 before:inline-block w-1/6
+}
+.-w-offset-1\/6-s {
+  @apply after:w-1/2 after:inline-block w-1/3
+}
+.w-offset-1\/6-s {
+  @apply before::w-1/2 before:inline-block w-1/3
+}
+.-w-offset-1\/3-s {
+  @apply after:w-1/2 after:inline-block w-1/12
+}
+.w-offset-1\/3-s {
+  @apply before::w-1/2 before:inline-block w-1/12
+}
+.-w-offset-1\/4-s {
+  @apply after:w-1/2 after:inline-block w-1/2
+}
+.w-offset-1\/4-s {
+  @apply before::w-1/2 before:inline-block w-1/2
+} */
