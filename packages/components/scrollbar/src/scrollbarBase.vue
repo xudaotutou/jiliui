@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted,nextTick,toRefs } from "vue";
-import useScroll from "./use-scroll.ts";
+import useScroll from "./use-scroll";
 export default defineComponent({
   props: {
     height: {
@@ -54,17 +54,17 @@ export default defineComponent({
   },
   setup(props) {
     // dom
-    const contentView = ref<object>(null);
-    const scrollbarWrap = ref<object>(null);
-    const yScrollbar = ref<object>(null);
-    const xScrollbar = ref<object>(null);
+    const contentView = ref();
+    const scrollbarWrap = ref();
+    const yScrollbar = ref();
+    const xScrollbar = ref();
 
     let sliderHeight = ref<number>(0);
     let sliderWidth = ref<number>(0);
     let visibleHeight = ref<string>("");
     let yMaxHeight = ref<string>("");
-    const xdisplay = ref<boolean>("true");
-    const ydisplay = ref<boolean>("true");
+    const xdisplay = ref<boolean>(true);
+    const ydisplay = ref<boolean>(true);
     const {height,maxHeight} = toRefs(props)
     visibleHeight.value = height.value;
     yMaxHeight.value = maxHeight.value;
@@ -101,7 +101,7 @@ export default defineComponent({
     // MutationObserver监听dom变化
     if (maxHeight.value && height.value === "100%") {
       const observe = new MutationObserver((mutationList) => {
-        let curMaxHeight = maxHeight.value.split('px')[0] - 0
+        let curMaxHeight = (maxHeight.value as any).split('px')[0] - 0
         if (contentView.value.clientHeight > curMaxHeight) {
           let contentEle = contentView.value;
           let scrollbarWrapEle = scrollbarWrap.value;
