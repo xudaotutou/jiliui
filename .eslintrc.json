@@ -7,35 +7,52 @@
   "extends": [
     "plugin:vue/vue3-essential",
     // "standard-with-typescript",
+    "eslint:recommended", 
+    "plugin:@typescript-eslint/recommended",
     "plugin:tailwindcss/recommended",
     "plugin:vue/vue3-recommended"
   ],
   "overrides": [
     {
-      "files": [
-        "*.vue"
-      ],
-      "parser": "vue-eslint-parser"
+      "files": ["*.vue"],
+      "parser": "vue-eslint-parser",
+      "parserOptions": {
+        "parser": {
+          // Script parser for `<script>`
+          "js": "espree",
+    
+          // Script parser for `<script lang="ts">`
+          "ts": "@typescript-eslint/parser"
+          // Script parser for vue directives (e.g. `v-if=` or `:attribute=`)
+          // and vue interpolations (e.g. `{{variable}}`).
+          // If not specified, the parser determined by `<script lang ="...">` is used.
+          // "<template>": "espree"
+        }
+      }
+    },{
+      "files":["*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project":"./tsconfig.json"
+      }
     }
   ],
   "ignorePatterns": [],
-  "parserOptions": {
-    "parser": {
-      // Script parser for `<script>`
-      "js": "espree",
-      // Script parser for `<script lang="ts">`
-      "ts": "@typescript-eslint/parser"
-      // Script parser for vue directives (e.g. `v-if=` or `:attribute=`)
-      // and vue interpolations (e.g. `{{variable}}`).
-      // If not specified, the parser determined by `<script lang ="...">` is used.
-      // "<template>": "espree"
-    }
-  },
   "plugins": [
     "vue",
     "@typescript-eslint"
   ],
-  "parser": "vue-eslint-parser",
+  // "parser": "vue-eslint-parser",
   "root": true,
-  "rules": {}
+  "rules": {
+        "tailwindcss/classnames-order": "warn",
+    "tailwindcss/enforces-negative-arbitrary-values": "warn",
+    "tailwindcss/enforces-shorthand": "warn",
+    "tailwindcss/migration-from-tailwind-2": "warn",
+    "tailwindcss/no-arbitrary-value": "off",
+    "tailwindcss/no-custom-classname": ["warn", {
+      "config": "./tailwind.config.cjs"
+      }],
+    "tailwindcss/no-contradicting-classname": "error"
+  }
 }

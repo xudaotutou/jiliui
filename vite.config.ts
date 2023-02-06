@@ -2,6 +2,10 @@ import { defineConfig } from "vitest/config";
 import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
 import path from "path";
+import postcss_import from "postcss-import"
+import tailwindcss from "tailwindcss"
+import autoprefixer from "autoprefixer"
+
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
@@ -50,4 +54,14 @@ export default defineConfig({
       exclude: ["./examples"],
     }),
   ],
+  css:{
+    postcss:{
+      plugins:[
+        postcss_import,
+        // tailwindcss("./packages/components/layout/tailwindcss.config.cjs"),
+        tailwindcss("./tailwind.config.cjs"),
+        autoprefixer
+      ]
+    }
+  }
 });

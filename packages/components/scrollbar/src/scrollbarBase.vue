@@ -39,41 +39,41 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted,nextTick,toRefs } from "vue";
-import useScroll from "./use-scroll";
+import { defineComponent, ref, onMounted, nextTick, toRefs } from 'vue'
+import useScroll from './use-scroll'
 export default defineComponent({
   props: {
     height: {
       type: String,
-      default: "100%",
+      default: '100%'
     },
     maxHeight: {
       type: String,
-      default: "",
-    },
+      default: ''
+    }
   },
-  setup(props) {
+  setup (props) {
     // dom
-    const contentView = ref();
-    const scrollbarWrap = ref();
-    const yScrollbar = ref();
-    const xScrollbar = ref();
+    const contentView = ref()
+    const scrollbarWrap = ref()
+    const yScrollbar = ref()
+    const xScrollbar = ref()
 
-    let sliderHeight = ref<number>(0);
-    let sliderWidth = ref<number>(0);
-    let visibleHeight = ref<string>("");
-    let yMaxHeight = ref<string>("");
-    const xdisplay = ref<boolean>(true);
-    const ydisplay = ref<boolean>(true);
-    const {height,maxHeight} = toRefs(props)
-    visibleHeight.value = height.value;
-    yMaxHeight.value = maxHeight.value;
+    const sliderHeight = ref<number>(0)
+    const sliderWidth = ref<number>(0)
+    const visibleHeight = ref<string>('')
+    const yMaxHeight = ref<string>('')
+    const xdisplay = ref<boolean>(true)
+    const ydisplay = ref<boolean>(true)
+    const { height, maxHeight } = toRefs(props)
+    visibleHeight.value = height.value
+    yMaxHeight.value = maxHeight.value
 
     onMounted(() => {
-      let contentEle = contentView.value;
-      let scrollbarWrapEle = scrollbarWrap.value;
+      const contentEle = contentView.value
+      const scrollbarWrapEle = scrollbarWrap.value
 
-      const railHeight = scrollbarWrapEle.clientHeight - 2;
+      const railHeight = scrollbarWrapEle.clientHeight - 2
       sliderHeight.value =
         Math.max(
           Math.floor(
@@ -81,31 +81,31 @@ export default defineComponent({
               contentEle.clientHeight
           ),
           25
-        ) - 5;
-      const railWidth = scrollbarWrapEle.clientWidth - 2;
+        ) - 5
+      const railWidth = scrollbarWrapEle.clientWidth - 2
       sliderWidth.value =
         Math.max(
           Math.floor(
             (scrollbarWrapEle.clientWidth * railWidth) / contentEle.scrollWidth
           ),
           25
-        ) - 5;
+        ) - 5
       if (contentEle.clientHeight > scrollbarWrapEle.clientWidth) {
-        ydisplay.value = false;
+        ydisplay.value = false
       }
       if (contentEle.scrollWidth > scrollbarWrapEle.clientWidth) {
-        xdisplay.value = false;
+        xdisplay.value = false
       }
-    });
+    })
 
     // MutationObserver监听dom变化
-    if (maxHeight.value && height.value === "100%") {
+    if (maxHeight.value && height.value === '100%') {
       const observe = new MutationObserver((mutationList) => {
-        let curMaxHeight = (maxHeight.value as any).split('px')[0] - 0
+        const curMaxHeight = (maxHeight.value as any).split('px')[0] - 0
         if (contentView.value.clientHeight > curMaxHeight) {
-          let contentEle = contentView.value;
-          let scrollbarWrapEle = scrollbarWrap.value;
-          const railHeight = scrollbarWrapEle.clientHeight - 2;
+          const contentEle = contentView.value
+          const scrollbarWrapEle = scrollbarWrap.value
+          const railHeight = scrollbarWrapEle.clientHeight - 2
           sliderHeight.value =
             Math.max(
               Math.floor(
@@ -113,16 +113,15 @@ export default defineComponent({
                   contentEle.clientHeight
               ),
               25
-            ) - 5;
-          ydisplay.value = false;
+            ) - 5
+          ydisplay.value = false
+        } else {
+          ydisplay.value = true
         }
-        else {
-          ydisplay.value = true;
-        }
-      });
-      nextTick(()=> {
-        observe.observe(contentView.value,{
-           childList: true
+      })
+      nextTick(() => {
+        observe.observe(contentView.value, {
+          childList: true
         })
       })
     }
@@ -135,7 +134,7 @@ export default defineComponent({
       sliderHeight,
       xScrollbar,
       sliderWidth
-    );
+    )
 
     return {
       visibleHeight,
@@ -150,10 +149,10 @@ export default defineComponent({
       yscrollMousedown,
       yScrollbar,
       xScrollbar,
-      xscrollMousedown,
-    };
-  },
-});
+      xscrollMousedown
+    }
+  }
+})
 </script>
 
 <style scoped>

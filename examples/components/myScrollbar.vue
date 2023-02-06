@@ -48,29 +48,29 @@
 </template>
 
 <script lang="ts">
-import scrollbar from "../../packages/components/scrollbar/src/scrollbarBase.vue";
-import { ref } from "vue";
+import scrollbar from '../../packages/components/scrollbar/src/scrollbarBase.vue'
+import { ref } from 'vue'
 export default {
   components: {
-    scrollbar,
+    scrollbar
   },
-  setup() {
+  setup () {
     const count = ref(3)
     const add = () => {
-      count.value++;
-    };
+      count.value++
+    }
     const onDelete = () => {
       if (count.value > 0) {
-        count.value--;
+        count.value--
       }
-    };
-    return {
-        count,
-        add,
-        onDelete
     }
-  },
-};
+    return {
+      count,
+      add,
+      onDelete
+    }
+  }
+}
 </script>
 
 <style scoped>
