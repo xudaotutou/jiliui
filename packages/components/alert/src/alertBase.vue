@@ -1,28 +1,25 @@
 <template>
   <div
-    class="alert"
-    :class="alertType"
+    :class="[alertType,alert]"
   >
     <div
       v-show="visible"
-      class="alertContent"
+      :class="alertContent"
       role="alert"
     >
       <div
-        class="title"
-        :class="[isCenter,isBold]"
+        :class="[isCenter,isBold,titleClass]"
       >
         {{ title }}
       </div>
       <template v-if="closable">
         <span
-          class="rightHandler"
+          :class="rightHandler"
           @click="handleClose"
-        >{{ closeText }}</span> 
+        >{{ closeText }}</span>
       </template>
     </div>
     <p
-      class="description"
       :class="isCenter"
     >
       <slot>
@@ -31,10 +28,14 @@
     </p>
   </div>
 </template>
-    
-    <script setup lang="ts">
-    import { ref,toRefs,computed,withDefaults } from 'vue'
-    const visible = ref(true)
+
+<script setup lang="ts">
+import { ref, toRefs, computed, withDefaults } from 'vue'
+const alert = ref("alert")
+const alertContent = ref("alertContent")
+const rightHandler = ref("rightHandler")
+const titleClass = ref("titleClass")
+const visible = ref(true)
     interface Props {
         title: string,
         closable?: boolean,
@@ -45,39 +46,39 @@
         center?:boolean,
         effect?:string
       }
-    const props = withDefaults(
-      defineProps<Props>(),
-      {
-        title: "",
-        description: '',
-        closable: true,
-        closeText:'关闭',
-        type:'success',
-        showIcon:false,
-        center:false,
-        effect:'light'
-      }
-    )
-    const emit = defineEmits(["close"])
-    toRefs(props)
-    const isCenter = computed(()=>{
-      return props.center?"center":""
-    })
-    const alertType = computed(()=>{
-      if(props.effect=="dark"){
-        return `${props.type}Dark`
-      }else {
-        return props.type
-      }
-    })
-    const isBold = computed(()=>{
-      return props.description?"bold":""
-    })
-    const handleClose = (evt:MouseEvent)=>{
-      visible.value = false
-      emit("close",evt)
-    }
-    </script>
+const props = withDefaults(
+  defineProps<Props>(),
+  {
+    title: '',
+    description: '',
+    closable: true,
+    closeText: '关闭',
+    type: 'success',
+    showIcon: false,
+    center: false,
+    effect: 'light'
+  }
+)
+const emit = defineEmits(['close'])
+toRefs(props)
+const isCenter = computed(() => {
+  return props.center ? 'center' : ''
+})
+const alertType = computed(() => {
+  if (props.effect == 'dark') {
+    return `${props.type}Dark`
+  } else {
+    return props.type
+  }
+})
+const isBold = computed(() => {
+  return props.description ? 'bold' : ''
+})
+const handleClose = (evt:MouseEvent) => {
+  visible.value = false
+  emit('close', evt)
+}
+</script>
     <style scoped>
     .alert {
       padding: 10px;
@@ -94,7 +95,7 @@
       align-items: center;
       justify-content: space-between;
     }
-    .title {
+    .titleClass {
       display: flex;
       align-items: center;
       flex: 1;
@@ -150,6 +151,5 @@
     p {
       margin: 0!important;
     }
-    
+
     </style>
-    
