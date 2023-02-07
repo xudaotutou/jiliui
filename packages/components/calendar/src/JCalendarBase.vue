@@ -1,137 +1,137 @@
 <script setup lang="ts">
-import { reactive, onMounted, defineProps } from "vue";
+import { reactive, onMounted, defineProps } from 'vue'
 import { CalendarMonthDateType } from './JCalendarBase'
 const props = defineProps({
-  value: Date,
-});
+  value: Date
+})
 
 const calendarDate = reactive({
-  weekText: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+  weekText: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   year: new Date().getFullYear(),
   month: new Date().getMonth() + 1,
   day: new Date().getDate(),
   Today:
     new Date().getFullYear() +
-    "-" +
+    '-' +
     (Number(new Date().getMonth()) + 1) +
-    "-" +
+    '-' +
     new Date().getDate(),
-  isSelect: new Date().getMonth() + 1 + "-" + new Date().getDate(),
-});
+  isSelect: new Date().getMonth() + 1 + '-' + new Date().getDate()
+})
 
-const thisMonthDays= reactive<CalendarMonthDateType[]>([])
-const lastEmptyDays= reactive<CalendarMonthDateType[]>([])
-const nextEmptyDays= reactive<CalendarMonthDateType[]>([])
+const thisMonthDays = reactive<CalendarMonthDateType[]>([])
+const lastEmptyDays = reactive<CalendarMonthDateType[]>([])
+const nextEmptyDays = reactive<CalendarMonthDateType[]>([])
 
 // 获取当月天数
 const getThisMonthDays = (year: number, month: number) => {
-  return new Date(year, month, 0).getDate();
-};
+  return new Date(year, month, 0).getDate()
+}
 
 // 展示的数据
-const display = (year: number, month: number,day:number) => {
-  createDays(year, month);
-  createEmptyGrid(year, month);
-};
+const display = (year: number, month: number, day:number) => {
+  createDays(year, month)
+  createEmptyGrid(year, month)
+}
 
 // 当月份展示的数据
 const createDays = (year: number, month: number) => {
-  let days = getThisMonthDays(calendarDate.year, calendarDate.month);
-  console.log(typeof year);
-  console.log(typeof month);
+  const days = getThisMonthDays(calendarDate.year, calendarDate.month)
+  console.log(typeof year)
+  console.log(typeof month)
   for (let i = 1; i <= days; i++) {
-    console.log(typeof i);
+    console.log(typeof i)
     thisMonthDays.push({
-      year:year,
-      month:month,
-      day: i,
-    });
+      year,
+      month,
+      day: i
+    })
   }
-};
+}
 
 // 获取展示上个月和下个月的
 const createEmptyGrid = (year: number, month: number) => {
-  let week = new Date(Date.UTC(year, month - 1, 1)).getDay(),
-    emptyNum = week == 6 ? 7 : week;
+  const week = new Date(Date.UTC(year, month - 1, 1)).getDay()
+  const emptyNum = week === 6 ? 7 : week
 
-  let thisMonthDays = getThisMonthDays(year, month);
-  let Lyear = month - 1 < 0 ? year - 1 : year
-  let lastMonth = month - 1 < 0 ? 12 : month - 1;
-  let preMonthDays =
+  const thisMonthDays = getThisMonthDays(year, month)
+  const Lyear = month - 1 < 0 ? year - 1 : year
+  const lastMonth = month - 1 < 0 ? 12 : month - 1
+  const preMonthDays =
     month - 1 < 0
       ? getThisMonthDays(year - 1, 11)
-      : getThisMonthDays(year, month - 1);
+      : getThisMonthDays(year, month - 1)
   for (let i = 1; i <= emptyNum; i++) {
     lastEmptyDays.push({
-      year:Lyear,
+      year: Lyear,
       month: lastMonth,
-      day: preMonthDays - (emptyNum - i),
-    });
+      day: preMonthDays - (emptyNum - i)
+    })
   }
-  if (lastEmptyDays.length == 7) {
-    lastEmptyDays.length = 0;
+  if (lastEmptyDays.length === 7) {
+    lastEmptyDays.length = 0
   }
-  let Nyear = month + 1 > 12 ? year + 1 : year
-  let nextMonth = month + 1 > 12 ? 1 : month + 1;
-  let after =
+  const Nyear = month + 1 > 12 ? year + 1 : year
+  const nextMonth = month + 1 > 12 ? 1 : month + 1
+  const after =
     42 - thisMonthDays - emptyNum - 7 >= 0
       ? 42 - thisMonthDays - emptyNum - 7
-      : 42 - thisMonthDays - emptyNum;
+      : 42 - thisMonthDays - emptyNum
   for (let i = 1; i <= after; i++) {
     nextEmptyDays.push({
       year: Nyear,
       month: nextMonth,
-      day: i,
-    });
+      day: i
+    })
   }
-};
+}
 
 // 清空数据
 const clearDate = (): void => {
-  thisMonthDays.length = 0;
-  lastEmptyDays.length = 0;
-  nextEmptyDays.length = 0;
-};
+  thisMonthDays.length = 0
+  lastEmptyDays.length = 0
+  nextEmptyDays.length = 0
+}
 
 const selectDay = (month: number | undefined, day: number | undefined) => {
-  calendarDate.isSelect = month + "-" + day;
-};
+  calendarDate.isSelect = month + '-' + day
+}
 
 const toToday = (): void => {
-  (calendarDate.year = new Date().getFullYear()),
-    (calendarDate.month = new Date().getMonth() + 1),
-    (calendarDate.day = new Date().getDate());
-  clearDate();
-  display(calendarDate.year, calendarDate.month, calendarDate.day);
-  selectDay(calendarDate.month, calendarDate.day);
-};
+  calendarDate.year = new Date().getFullYear()
+  calendarDate.month = new Date().getMonth() + 1
+  calendarDate.day = new Date().getDate()
+  clearDate()
+  display(calendarDate.year, calendarDate.month, calendarDate.day)
+  selectDay(calendarDate.month, calendarDate.day)
+}
 
 const previousMonth = (): void => {
   calendarDate.year =
-    calendarDate.month === 1 ? calendarDate.year - 1 : calendarDate.year;
-  calendarDate.month = calendarDate.month === 1 ? 12 : calendarDate.month - 1;
-  clearDate();
-  selectDay(calendarDate.month, 1);
-  display(calendarDate.year, calendarDate.month, calendarDate.day);
-};
+    calendarDate.month === 1 ? calendarDate.year - 1 : calendarDate.year
+  calendarDate.month = calendarDate.month === 1 ? 12 : calendarDate.month - 1
+  clearDate()
+  selectDay(calendarDate.month, 1)
+  display(calendarDate.year, calendarDate.month, calendarDate.day)
+}
 
 const nextMonth = (): void => {
   calendarDate.year =
-    calendarDate.month === 12 ? calendarDate.year + 1 : calendarDate.year;
-  calendarDate.month = calendarDate.month === 12 ? 1 : calendarDate.month + 1;
-  clearDate();
-  selectDay(calendarDate.month, 1);
-  display(calendarDate.year, calendarDate.month, calendarDate.day);
-};
+    calendarDate.month === 12 ? calendarDate.year + 1 : calendarDate.year
+  calendarDate.month = calendarDate.month === 12 ? 1 : calendarDate.month + 1
+  clearDate()
+  selectDay(calendarDate.month, 1)
+  display(calendarDate.year, calendarDate.month, calendarDate.day)
+}
 
 onMounted(() => {
-  display(calendarDate.year, calendarDate.month,calendarDate.day);
-  if(props.value) {
-    (calendarDate.year = props.value.getFullYear()),
-    (calendarDate.month = props.value.getMonth() + 1),
-    (calendarDate.day = props.value.getDate());
+  display(calendarDate.year, calendarDate.month, calendarDate.day)
+  if (props.value) {
+    calendarDate.year = props.value.getFullYear()
+    calendarDate.month = props.value.getMonth() + 1
+    calendarDate.day = props.value.getDate()
   }
-});
+})
 </script>
 
 <template>
