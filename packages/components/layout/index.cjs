@@ -1,26 +1,52 @@
-// module.exports ={
-//   .w-offset-1/12 {
-//     "margin-left": "8.333333%";
-//   }
-//   .-w-offset-1\/12 {
-//     margin-right: 8.333333%;
-//   }
-//   .w-offset-1\/6 {
-//     margin-left: 16.666667%;
-//   }
-//   .-w-offset-1\/6 {
-//     margin-right: 16.666667%;
-//   }
-//   .w-offset-1\/3 {
-//     margin-left: 33.333333%;
-//   }
-//   .-w-offset-1\/3 {
-//     margin-right: 33.333333%;
-//   }
-//   .w-offset-1\/4 {
-//     margin-left: 25%;
-//   }
-//   .-w-offset-1\/4 {
-//     margin-right: 25%;
-//   }
-// }
+const css = require("../../../dist/components/layout/Jlayout.cjs")['@global']
+module.exports = {
+  match_u: {
+    'w-offset-r'(value){
+      let [son, father] = value.split('/')
+      let res = (parseInt(son) / parseInt(father) * 100).toFixed(6)
+      res += '%'
+      console.log(res,"-w")
+      return {
+        'margin-right': res
+      }
+    },
+    'w-offset-l'(value){
+      let [son, father] = value.split('/')
+      let res = (parseInt(son) / parseInt(father) * 100).toFixed(6)
+      res += '%'
+      console.log(res,"w")
+      return {
+        'margin-left': res
+      }
+    },
+    'w-push'(value){
+      let [son, father] = value.split('/')
+      let res = (parseInt(son) / parseInt(father) * 100).toFixed(6)
+      res += '%'
+      console.log(res,"w-push")
+      return {
+        'position':'relative',
+        'left':res
+      }
+    },
+    'w-pull'(value){
+      let [son, father] = value.split('/')
+      let res = (parseInt(son) / parseInt(father) * 100).toFixed(6)
+      res += '%'
+      console.log(res,"w")
+      return {
+        'position':'relative',
+        'right':res
+      }
+    },
+    'w-j-p'(value){
+        let [son, father] = value.split('/')
+        let res = (parseInt(son) / parseInt(father) * 100).toFixed(6)
+        res += '%'
+        return {
+          'width':res
+        }
+    }
+  },
+  css
+}

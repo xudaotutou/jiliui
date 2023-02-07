@@ -1,9 +1,15 @@
-const css = require("../dist/Jlayout.cjs")['@global']
+
+const Jlayout = require('./components/layout/index.cjs')
 module.exports = require("tailwindcss/plugin")(function ({
-  addUtilities
+  addUtilities,
+  matchUtilities
 }) {
-  console.log("hellowor")
-  console.log(css)
-  addUtilities(css);
+  addUtilities({
+    ...Jlayout.css
+  });
+  matchUtilities({
+    ...Jlayout.match_u
+  }
+  )
 })
 
