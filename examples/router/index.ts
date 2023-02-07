@@ -19,8 +19,11 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/scrollbar',
     component: async () => await import('../components/myScrollbar.vue')
+  },
+  {
+    path: '/calendar',
+    component: async () => await import("../components/myCalendar.vue")
   }
-
 ]
 const router = createRouter({
   routes,
