@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-let rate = ref(0)
+const rate = ref(0)
 
 const props = defineProps({
   min: {
@@ -72,10 +72,10 @@ const props = defineProps({
     default: true
   }
 })
-function changeRate(n: number) {
-  if(rate.value + n <= 0) rate.value = 0
-  else if(rate.value + n >= 100) rate.value = 100
-  else rate.value = Number(rate.value) + Number(n)  
+function changeRate (n: number) {
+  if (rate.value + n <= 0) rate.value = 0
+  else if (rate.value + n >= 100) rate.value = 100
+  else rate.value = Number(rate.value) + Number(n)
 }
 </script>
 

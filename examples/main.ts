@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import router from './router'
@@ -6,6 +6,6 @@ import router from './router'
 // import ui from '../dist'
 // import "../packages/index"
 createApp(App)
-.use(router)
+  .use(router)
 // .use(JButtonBase)
-.mount('#app')
+  .mount('#app')
