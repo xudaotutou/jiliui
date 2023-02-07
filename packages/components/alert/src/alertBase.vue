@@ -65,7 +65,7 @@ const isCenter = computed(() => {
   return props.center ? 'center' : ''
 })
 const alertType = computed(() => {
-  if (props.effect == 'dark') {
+  if (props.effect === 'dark') {
     return `${props.type}Dark`
   } else {
     return props.type
