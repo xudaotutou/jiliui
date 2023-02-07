@@ -1,19 +1,19 @@
-import type { App } from "vue";
-import JButtonBase from "./components/buttons";
+import type { App } from 'vue'
+import JButtonBase from './components/buttons'
 // import jlayout from "./components/layout/layout.module.css";
 // import plugin from "tailwindcss/plugin";
 const components = {
-  JButtonBase,
-};
+  JButtonBase
+}
 // const INSTALLED = Symbol("INSTALLED");
-let installed = false;
+let installed = false
 
-function install(vue: App) {
-  if (installed) return;
-  installed = true;
+function install (vue: App): void {
+  if (installed) return
+  installed = true
   Object.values(components).forEach((comp) => {
-    vue.use(comp);
-  });
+    vue.use(comp)
+  })
 }
 
 /**
@@ -97,10 +97,10 @@ function install(vue: App) {
 //   ctx.addUtilities(jlayout);
 // });
 export {
-  install,
+  install
   // ButtonBase,
   // ...components,
   // stylePlugin,
-};
+}
 export * from './components/buttons'
 // export * from './components/layout'

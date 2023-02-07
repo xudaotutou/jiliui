@@ -1,6 +1,5 @@
-<script setup lang="ts">
-// import {JButtonBase} from '../../dist'
-// import ui from '../../dist'
+<script setup lang='ts'>
+import mybutton from '../../packages/components/buttons/index'
 defineProps<{ msg: string }>()
 </script>
 
