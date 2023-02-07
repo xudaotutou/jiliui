@@ -23,6 +23,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/calendar',
     component: async () => await import('../components/myCalendar.vue')
+  },
+  {
+    path: '/myBackToTop',
+    component: async () => await import('../components/myBackToUp.vue')
   }
 ]
 const router = createRouter({

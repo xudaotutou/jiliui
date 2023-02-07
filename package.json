@@ -19,8 +19,11 @@
     }
   },
   "scripts": {
-    "b_Jlayout": "postcss --config ./packages ./packages/components/layout/Jlayout.css --base packages --dir dist && jss convert ./dist/components/layout/Jlayout.css -f js -e cjs > ./dist/components/layout/Jlayout.cjs",
-    "dev": "pnpm b_Jlayout && vite",
+    "b_css_pre":"postcss --config ./packages --base packages --dir dist",
+    "b_base":"pnpm b_css_pre ./packages/components/base/base.css  && jss  convert ./dist/components/base/base.css -f js -e cjs > ./dist/components/base/base.cjs",
+    "b_backToTop":"pnpm b_css_pre ./packages/components/backToTop/backToTop.css  && jss  convert ./dist/components/backToTop/backToTop.css -f js -e cjs > ./dist/components/backToTop/backToTop.cjs",
+    "b_Jlayout": "pnpm b_css_pre ./packages/components/layout/Jlayout.css  && jss  convert ./dist/components/layout/Jlayout.css -f js -e cjs > ./dist/components/layout/Jlayout.cjs",
+    "dev": "pnpm b_Jlayout && pnpm b_base && pnpm b_backToTop && vite",
     "build": "vue-tsc && vite build && pnpm b_Jlayout",
     "test": "vitest run",
     "test:w": "vitest -w",
