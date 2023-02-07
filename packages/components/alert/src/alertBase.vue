@@ -31,10 +31,10 @@
 
 <script setup lang="ts">
 import { ref, toRefs, computed, withDefaults } from 'vue'
-const alert = ref("alert")
-const alertContent = ref("alertContent")
-const rightHandler = ref("rightHandler")
-const titleClass = ref("titleClass")
+const alert = ref('alert')
+const alertContent = ref('alertContent')
+const rightHandler = ref('rightHandler')
+const titleClass = ref('titleClass')
 const visible = ref(true)
     interface Props {
         title: string,

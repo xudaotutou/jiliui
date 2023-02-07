@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue'
 import JCalendarBase from '../../packages/components/calendar'
 
 const value = ref(new Date())
