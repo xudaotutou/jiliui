@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, onMounted, defineProps } from "vue";
-
+import { CalendarMonthDateType } from './JCalendarBase'
 const props = defineProps({
   value: Date,
 });
@@ -10,9 +10,6 @@ const calendarDate = reactive({
   year: new Date().getFullYear(),
   month: new Date().getMonth() + 1,
   day: new Date().getDate(),
-  thisMonthDays: [],
-  lastEmptyDays: [],
-  nextEmptyDays: [],
   Today:
     new Date().getFullYear() +
     "-" +
@@ -22,13 +19,17 @@ const calendarDate = reactive({
   isSelect: new Date().getMonth() + 1 + "-" + new Date().getDate(),
 });
 
+const thisMonthDays= reactive<CalendarMonthDateType[]>([])
+const lastEmptyDays= reactive<CalendarMonthDateType[]>([])
+const nextEmptyDays= reactive<CalendarMonthDateType[]>([])
+
 // 获取当月天数
 const getThisMonthDays = (year: number, month: number) => {
   return new Date(year, month, 0).getDate();
 };
 
 // 展示的数据
-const display = (year: number, month: number) => {
+const display = (year: number, month: number,day:number) => {
   createDays(year, month);
   createEmptyGrid(year, month);
 };
@@ -36,12 +37,14 @@ const display = (year: number, month: number) => {
 // 当月份展示的数据
 const createDays = (year: number, month: number) => {
   let days = getThisMonthDays(calendarDate.year, calendarDate.month);
+  console.log(typeof year);
+  console.log(typeof month);
   for (let i = 1; i <= days; i++) {
-    calendarDate.thisMonthDays.push({
-      year,
-      month,
+    console.log(typeof i);
+    thisMonthDays.push({
+      year:year,
+      month:month,
       day: i,
-      dayFormat: zero(i),
     });
   }
 };
@@ -52,27 +55,31 @@ const createEmptyGrid = (year: number, month: number) => {
     emptyNum = week == 6 ? 7 : week;
 
   let thisMonthDays = getThisMonthDays(year, month);
+  let Lyear = month - 1 < 0 ? year - 1 : year
   let lastMonth = month - 1 < 0 ? 12 : month - 1;
   let preMonthDays =
     month - 1 < 0
       ? getThisMonthDays(year - 1, 11)
       : getThisMonthDays(year, month - 1);
   for (let i = 1; i <= emptyNum; i++) {
-    calendarDate.lastEmptyDays.push({
+    lastEmptyDays.push({
+      year:Lyear,
       month: lastMonth,
       day: preMonthDays - (emptyNum - i),
     });
   }
-  if (calendarDate.lastEmptyDays.length == 7) {
-    calendarDate.lastEmptyDays = [];
+  if (lastEmptyDays.length == 7) {
+    lastEmptyDays.length = 0;
   }
+  let Nyear = month + 1 > 12 ? year + 1 : year
   let nextMonth = month + 1 > 12 ? 1 : month + 1;
   let after =
     42 - thisMonthDays - emptyNum - 7 >= 0
       ? 42 - thisMonthDays - emptyNum - 7
       : 42 - thisMonthDays - emptyNum;
   for (let i = 1; i <= after; i++) {
-    calendarDate.nextEmptyDays.push({
+    nextEmptyDays.push({
+      year: Nyear,
       month: nextMonth,
       day: i,
     });
@@ -81,12 +88,12 @@ const createEmptyGrid = (year: number, month: number) => {
 
 // 清空数据
 const clearDate = (): void => {
-  calendarDate.thisMonthDays = [];
-  calendarDate.lastEmptyDays = [];
-  calendarDate.nextEmptyDays = [];
+  thisMonthDays.length = 0;
+  lastEmptyDays.length = 0;
+  nextEmptyDays.length = 0;
 };
 
-const selectDay = (month: number, day: number) => {
+const selectDay = (month: number | undefined, day: number | undefined) => {
   calendarDate.isSelect = month + "-" + day;
 };
 
@@ -118,16 +125,13 @@ const nextMonth = (): void => {
 };
 
 onMounted(() => {
-  display(calendarDate.year, calendarDate.month);
-  (calendarDate.year = props.value.getFullYear()),
+  display(calendarDate.year, calendarDate.month,calendarDate.day);
+  if(props.value) {
+    (calendarDate.year = props.value.getFullYear()),
     (calendarDate.month = props.value.getMonth() + 1),
     (calendarDate.day = props.value.getDate());
+  }
 });
-
-// 格式化月份 -- 01
-const zero = (i: number) => {
-  return i >= 10 ? i : "0" + i;
-};
 </script>
 
 <template>
@@ -171,7 +175,7 @@ const zero = (i: number) => {
     </div>
     <div class="gridContainer">
       <div
-        v-for="(item, index) in calendarDate.lastEmptyDays"
+        v-for="(item, index) in lastEmptyDays"
         :key="index"
         class="grey grid"
         :class="{
@@ -182,7 +186,7 @@ const zero = (i: number) => {
         {{ item.day }}
       </div>
       <div
-        v-for="(item, index) in calendarDate.thisMonthDays"
+        v-for="(item, index) in thisMonthDays"
         :key="index"
         class="grid"
         :class="{
@@ -196,7 +200,7 @@ const zero = (i: number) => {
         {{ item.day }}
       </div>
       <div
-        v-for="(item, index) in calendarDate.nextEmptyDays"
+        v-for="(item, index) in nextEmptyDays"
         :key="index"
         class="grey grid"
         :class="{
@@ -233,8 +237,9 @@ const zero = (i: number) => {
 .button {
   border: 1px solid #eee;
   height: 30px;
+  line-height: 30px;
   font-size: 12px;
-  padding: 5px;
+  padding: 0 5px;
   border-radius: 5px;
   cursor: pointer;
   background: none;
