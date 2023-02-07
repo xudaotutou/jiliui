@@ -1,5 +1,5 @@
 
-export default function standardizedWheel (e: any) {
+export default function standardizedWheel (e: any): any {
   const userAgent = window.navigator.userAgent
   const isSafari = (!userAgent.includes('Chrome')) && (userAgent.includes('Safari'))
   const wheelEvent = Object.assign({}, e)
@@ -25,7 +25,7 @@ export default function standardizedWheel (e: any) {
     wheelEvent.deltaX = -e.detail / 3
   }
 
-  if (wheelEvent.deltaY === 0 && wheelEvent.deltaX === 0 && e.wheelDelta) {
+  if (wheelEvent.deltaY === 0 && wheelEvent.deltaX === 0 && typeof e.wheelDelta === 'number') {
     // IE
     wheelEvent.deltaY = e.wheelDelta / 120
   }

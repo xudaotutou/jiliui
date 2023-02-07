@@ -2,12 +2,12 @@
 
 import standardizedWheel from './standardizedWheel'
 
-export default function useScroll (contentView: any, scrollbarWrap: any, yScrollbar: any, sliderHeight: any, xScrollbar: any, sliderWidth: any) {
+export default function useScroll (contentView: any, scrollbarWrap: any, yScrollbar: any, sliderHeight: any, xScrollbar: any, sliderWidth: any): any {
   const scrollFactor = 40
   const pageY: any = {}
   const pageX: any = {}
 
-  function yscrollWheel (event: WheelEvent) {
+  function yscrollWheel (event: WheelEvent): void {
     const e = standardizedWheel(event)
     const scrollbarWrapEle = scrollbarWrap.value
     const contentEle = contentView.value
@@ -18,19 +18,19 @@ export default function useScroll (contentView: any, scrollbarWrap: any, yScroll
       (railHeight - sliderHeight.value) /
       (contentEle.clientHeight - scrollbarWrapEle.clientHeight)
     const yScrollbarEle = yScrollbar.value
-    yScrollbarEle.style.top = scrollTop * sliderRatio + 'px'
+    yScrollbarEle.style.top = String((scrollTop * sliderRatio)) + 'px'
     if (scrollbarWrapEle.scrollTop === 0) {
-      yScrollbarEle.style.top = 2 + 'px'
+      yScrollbarEle.style.top = String(2) + 'px'
     }
     if (
       scrollbarWrapEle.scrollTop ===
       scrollbarWrapEle.scrollHeight - scrollbarWrapEle.clientHeight
     ) {
-      yScrollbarEle.style.top = 2 + railHeight - sliderHeight.value + 'px'
+      yScrollbarEle.style.top = String(2 + railHeight - sliderHeight.value) + 'px'
     }
   }
 
-  function yscrollMousedown (e: MouseEvent) {
+  function yscrollMousedown (e: MouseEvent): void {
     const yScrollbarEle = yScrollbar.value
     const scrollbarWrapEle = scrollbarWrap.value
     const contentEle = contentView.value
@@ -41,21 +41,21 @@ export default function useScroll (contentView: any, scrollbarWrap: any, yScroll
       (contentEle.clientHeight - scrollbarWrapEle.clientHeight)
     pageY.lastedScrollTop = scrollbarWrapEle.scrollTop * sliderRatio
     document.documentElement.addEventListener('mousemove', mouseMove)
-    function mouseMove (e: MouseEvent) {
+    function mouseMove (e: MouseEvent): void {
       e.preventDefault()
       const moveDelta = e.pageY - pageY.lasted
-      const sliderTop = pageY.lastedScrollTop + moveDelta
+      const sliderTop = (pageY.lastedScrollTop) as number + moveDelta
       const scrollTop = sliderTop / sliderRatio
       scrollbarWrapEle.scrollTop = scrollTop
-      yScrollbarEle.style.top = sliderTop + 'px'
+      yScrollbarEle.style.top = String(sliderTop) + 'px'
       if (scrollbarWrapEle.scrollTop === 0) {
-        yScrollbarEle.style.top = 2 + 'px'
+        yScrollbarEle.style.top = String(2) + 'px'
       }
       if (
         scrollbarWrapEle.scrollTop ===
         scrollbarWrapEle.scrollHeight - scrollbarWrapEle.clientHeight
       ) {
-        yScrollbarEle.style.top = 2 + railHeight - sliderHeight.value + 'px'
+        yScrollbarEle.style.top = String(2 + railHeight - sliderHeight.value) + 'px'
       }
     }
     document.documentElement.addEventListener('mouseup', (e) => {
@@ -64,7 +64,7 @@ export default function useScroll (contentView: any, scrollbarWrap: any, yScroll
     })
   }
 
-  function xscrollMousedown (e: MouseEvent) {
+  function xscrollMousedown (e: MouseEvent): void {
     const xScrollbarEle = xScrollbar.value
     const scrollbarWrapEle = scrollbarWrap.value
     const contentEle = contentView.value
@@ -75,21 +75,21 @@ export default function useScroll (contentView: any, scrollbarWrap: any, yScroll
       (contentEle.scrollWidth - scrollbarWrapEle.clientWidth)
     pageX.lastedScrollLeft = scrollbarWrapEle.scrollLeft * sliderRatio
     document.documentElement.addEventListener('mousemove', mouseMove)
-    function mouseMove (e: any) {
+    function mouseMove (e: any): void {
       e.preventDefault()
       const moveDelta = e.pageX - pageX.lasted
-      const sliderLeft = pageX.lastedScrollLeft + moveDelta
+      const sliderLeft = (pageX.lastedScrollLeft) as number + moveDelta
       const scrollLeft = sliderLeft / sliderRatio
       scrollbarWrapEle.scrollLeft = scrollLeft
-      xScrollbarEle.style.left = sliderLeft + 'px'
+      xScrollbarEle.style.left = String(sliderLeft) + 'px'
       if (scrollbarWrapEle.scrollLeft === 0) {
-        xScrollbarEle.style.left = 2 + 'px'
+        xScrollbarEle.style.left = String(2) + 'px'
       }
       if (
         scrollbarWrapEle.scrollLeft ===
         contentEle.scrollWidth - scrollbarWrapEle.clientWidth
       ) {
-        xScrollbarEle.style.left = railWidth - sliderWidth.value + 'px'
+        xScrollbarEle.style.left = String(railWidth - sliderWidth.value) + 'px'
       }
     }
     document.documentElement.addEventListener('mouseup', (e) => {
