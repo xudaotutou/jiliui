@@ -9,6 +9,6 @@ module.exports = {
     extend: {}
   },
   plugins: [
-    require('./packages/style.cjs')
+    // require('./packages/style.cjs')
   ]
 }
