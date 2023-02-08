@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@typescript-eslint/eslint-plugin': ^5.50.0
   '@vitejs/plugin-vue': ^4.0.0
+  '@vue/runtime-core': ^3.2.47
   '@vue/test-utils': 2.0.0-rc.18
   autoprefixer: ^10.4.13
   eslint: ^8.0.1
@@ -41,6 +42,7 @@ dependencies:
 devDependencies:
   '@typescript-eslint/eslint-plugin': 5.50.0_4vsywjlpuriuw3tl5oq6zy5a64
   '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
+  '@vue/runtime-core': 3.2.47
   '@vue/test-utils': 2.0.0-rc.18_vue@3.2.47
   autoprefixer: 10.4.13_postcss@8.4.21
   eslint: 8.33.0

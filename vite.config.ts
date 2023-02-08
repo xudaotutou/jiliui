@@ -2,12 +2,24 @@ import { defineConfig } from "vitest/config";
 import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
 import path from "path";
-import postcss_import from "postcss-import"
-import tailwindcss from "tailwindcss"
-import autoprefixer from "autoprefixer"
+import postcss_import from "postcss-import";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({mode}) => {
+  let tailwindcss_config = './tailwind.config.cjs'
+  switch (mode) {
+    case 'production':
+      tailwindcss_config = './packages/tailwind.config.cjs'
+      break;
+    case 'development':
+      tailwindcss_config = './tailwind.config.cjs'
+      break;
+    default:
+      break;
+  }
+  return ({
   build: {
     minify: false,
     cssCodeSplit: true,
@@ -27,7 +39,7 @@ export default defineConfig({
         // for externalized deps
         globals: {
           vue: "Vue",
-        }
+        },
       },
     },
   },
@@ -54,14 +66,13 @@ export default defineConfig({
       exclude: ["./examples"],
     }),
   ],
-  css:{
-    postcss:{
-      plugins:[
+  css: {
+    postcss: {
+      plugins: [
         postcss_import,
-        // tailwindcss("./packages/components/layout/tailwindcss.config.cjs"),
-        tailwindcss("./tailwind.config.cjs"),
-        autoprefixer
-      ]
-    }
-  }
-});
+        tailwindcss(tailwindcss_config),
+        autoprefixer,
+      ],
+    },
+  },
+})});

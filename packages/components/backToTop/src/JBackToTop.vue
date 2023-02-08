@@ -1,8 +1,8 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
-  top?:string,
+  top?:number,
 }>(), {
-  top: '90'
+  top: 90
 })
 
 </script>
