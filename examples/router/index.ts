@@ -19,6 +19,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/scrollbar',
     component: async () => await import('../components/myScrollbar.vue')
+  },
+  {
+    path: '/input',
+    component: async () => await import('../components/myInput.vue')
   }
 
 ]
