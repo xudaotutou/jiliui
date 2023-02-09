@@ -135,27 +135,27 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="calendarContainer">
-    <div class="calenderHeader">
-      <slot name="header">
-        <div class="header-detail">
+  <div class="jili_calendarContainer">
+    <div class="jili_calenderHeader">
+      <slot name="jili_header">
+        <div class="jili_header_detail">
           {{ calendarDate.year }} - {{ calendarDate.month }}
         </div>
-        <div class="button-group">
+        <div class="jili_button_group">
           <button
-            class="button"
+            class="jili_button"
             @click="previousMonth"
           >
             Previous Month
           </button>
           <button
-            class="button"
+            class="jili_button"
             @click="toToday"
           >
             Today
           </button>
           <button
-            class="button"
+            class="jili_button"
             @click="nextMonth"
           >
             Next Month
@@ -163,23 +163,23 @@ onMounted(() => {
         </div>
       </slot>
     </div>
-    <div class="headerLine" />
-    <div class="calendarWeekText">
+    <div class="jili_headerLine" />
+    <div class="jili_calendarWeekText">
       <div
         v-for="(item, index) in calendarDate.weekText"
         :key="index"
-        class="day"
+        class="jili_day"
       >
         {{ item }}
       </div>
     </div>
-    <div class="gridContainer">
+    <div class="jili_gridContainer">
       <div
         v-for="(item, index) in lastEmptyDays"
         :key="index"
-        class="grey grid"
+        class="jili_grey jili_grid"
         :class="{
-          isSelect: calendarDate.isSelect === item.month + '-' + item.day,
+          jili_isSelect: calendarDate.isSelect === item.month + '-' + item.day,
         }"
         @click="selectDay(item.month, item.day)"
       >
@@ -188,12 +188,12 @@ onMounted(() => {
       <div
         v-for="(item, index) in thisMonthDays"
         :key="index"
-        class="grid"
+        class="jili_grid"
         :class="{
-          select:
+          jili_select:
             calendarDate.Today ===
             item.year + '-' + item.month + '-' + item.day,
-          isSelect: calendarDate.isSelect === item.month + '-' + item.day,
+          jili_isSelect: calendarDate.isSelect === item.month + '-' + item.day,
         }"
         @click="selectDay(item.month, item.day)"
       >
@@ -202,9 +202,9 @@ onMounted(() => {
       <div
         v-for="(item, index) in nextEmptyDays"
         :key="index"
-        class="grey grid"
+        class="jili_grey jili_grid"
         :class="{
-          isSelect: calendarDate.isSelect === item.month + '-' + item.day,
+          jili_isSelect: calendarDate.isSelect === item.month + '-' + item.day,
         }"
         @click="selectDay(item.month, item.day)"
       >
@@ -215,26 +215,26 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.calendarContainer {
+.jili_calendarContainer {
   width: 700px;
   /* height: 500px; */
   padding: 20px;
   border: 1px solid #eee;
   border-radius: 5px;
 }
-.calenderHeader {
+.jili_calenderHeader {
   display: flex;
   height: 60px;
   line-height: 60px;
   justify-content: space-between;
 }
-.button-group {
+.jili_button_group {
   /* max-width: 60%; */
   width: 60%;
   /* margin-left: auto; */
   text-align: right;
 }
-.button {
+.jili_button {
   border: 1px solid #eee;
   height: 30px;
   line-height: 30px;
@@ -245,29 +245,29 @@ onMounted(() => {
   background: none;
   white-space: nowrap;
 }
-.button:hover {
+.jili_button:hover {
   background: rgba(183, 215, 240, 0.677);
 }
-.headerLine {
+.jili_headerLine {
   border-bottom: 2px solid #eee;
   height: 5px;
 }
-.calendarWeekText {
+.jili_calendarWeekText {
   display: flex;
 }
-.day {
+.jili_day {
   flex: 1;
   /* border: 1px solid #eee; */
   text-align: center;
   height: 50px;
   line-height: 50px;
 }
-.gridContainer {
+.jili_gridContainer {
   display: flex;
   flex-wrap: wrap;
   padding: 10px 5px;
 }
-.grid {
+.jili_grid {
   width: 14%;
   text-align: center;
   height: 70px;
@@ -275,17 +275,17 @@ onMounted(() => {
   border: 1px solid #eee;
   cursor: pointer;
 }
-.grid:hover {
+.jili_grid:hover {
   background: rgba(183, 215, 240, 0.677);
 }
-.grey {
+.jili_grey {
   color: #eee;
 }
-.select {
+.jili_select {
   color: rgba(69, 166, 241, 0.677);
   /* background: rgba(183, 215, 240, 0.677); */
 }
-.isSelect {
+.jili_isSelect {
   color: rgba(69, 166, 241, 0.677);
   background: rgba(183, 215, 240, 0.677);
 }
