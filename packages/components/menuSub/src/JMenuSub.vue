@@ -1,10 +1,13 @@
 <template>
   <div class="jili-menu-sub">
-    <div class="jili-menu-sub-title" :style="style">
-      <slot name="title"></slot>
+    <div
+      class="jili-menu-sub-title"
+      :style="style"
+    >
+      <slot name="title" />
     </div>
     <div class="jili-menu-sub-list">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -24,7 +27,7 @@ const style = computed(() => {
     '--textColor': `${textColor}`,
     '--activeTextColor': `${activeTextColor}`,
     '--hoverColor': `${hoverColor}`,
-    '--hoverBackgroundColor': `${hoverBackgroundColor}`,
+    '--hoverBackgroundColor': `${hoverBackgroundColor}`
   }
 })
 </script>

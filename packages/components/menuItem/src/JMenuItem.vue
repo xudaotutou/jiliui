@@ -1,6 +1,9 @@
 <template>
-  <div :class="[{'jili-active': active}, disabled ? 'jili-menu-item-disabled' : 'jili-menu-item']" :style="style">
-    <slot></slot>
+  <div
+    :class="[{'jili-active': active}, disabled ? 'jili-menu-item-disabled' : 'jili-menu-item']"
+    :style="style"
+  >
+    <slot />
   </div>
 </template>
 
@@ -10,7 +13,7 @@ import { computed, inject } from 'vue'
 const props = defineProps({
   index: {
     type: Number,
-    require: true,
+    require: true
   },
   active: {
     type: Boolean,
@@ -36,7 +39,7 @@ const style = computed(() => {
     '--textColor': `${textColor}`,
     '--activeTextColor': `${activeTextColor}`,
     '--hoverColor': `${hoverColor}`,
-    '--hoverBackgroundColor': `${hoverBackgroundColor}`,
+    '--hoverBackgroundColor': `${hoverBackgroundColor}`
   }
 })
 </script>

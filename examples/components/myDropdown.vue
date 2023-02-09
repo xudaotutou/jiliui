@@ -17,7 +17,7 @@ import JDropdownItem from '../../packages/components/dropdownItem'
         <JDropdownItem>Action 2</JDropdownItem>
         <JDropdownItem>Action 3</JDropdownItem>
         <JDropdownItem>Action 4</JDropdownItem>
-      </JDropdownMenu>      
+      </JDropdownMenu>
     </template>
   </JDropdownBase>
 </template>

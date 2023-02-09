@@ -1,6 +1,9 @@
 <template>
-  <div class="jili-menu" :style="style">
-    <slot></slot>
+  <div
+    class="jili-menu"
+    :style="style"
+  >
+    <slot />
   </div>
 </template>
 
@@ -27,7 +30,7 @@ const props = defineProps({
 
 const style = computed(() => {
   return {
-    '--backgroundColor': props.backgroundColor,
+    '--backgroundColor': props.backgroundColor
   }
 })
 

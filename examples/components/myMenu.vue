@@ -8,9 +8,13 @@ import JMenuSub from '../../packages/components/menuSub'
 <template>
   <h1>Menu组件</h1>
   <JMenuBase>
-    <JMenuItem active>Processing Center</JMenuItem>
+    <JMenuItem active>
+      Processing Center
+    </JMenuItem>
     <JMenuSub>
-      <template #title>Workspace</template>
+      <template #title>
+        Workspace
+      </template>
       <JMenuItem>item one</JMenuItem>
       <JMenuItem>item two</JMenuItem>
       <JMenuItem>item three</JMenuItem>
@@ -21,7 +25,9 @@ import JMenuSub from '../../packages/components/menuSub'
         <JMenuItem>item three</JMenuItem>
       </JMenuSub> -->
     </JMenuSub>
-    <JMenuItem disabled>Info</JMenuItem>
+    <JMenuItem disabled>
+      Info
+    </JMenuItem>
     <JMenuItem>Orders</JMenuItem>
   </JMenuBase>
   <br><br><br><br><br><br><br>
@@ -31,9 +37,13 @@ import JMenuSub from '../../packages/components/menuSub'
     text-color="#fff"
     active-text-color="#ffd04b"
   >
-    <JMenuItem active>Processing Center</JMenuItem>
+    <JMenuItem active>
+      Processing Center
+    </JMenuItem>
     <JMenuSub>
-      <template #title>Workspace</template>
+      <template #title>
+        Workspace
+      </template>
       <JMenuItem>item one</JMenuItem>
       <JMenuItem>item two</JMenuItem>
       <JMenuItem>item three</JMenuItem>
@@ -44,7 +54,9 @@ import JMenuSub from '../../packages/components/menuSub'
         <JMenuItem>item three</JMenuItem>
       </JMenuSub> -->
     </JMenuSub>
-    <JMenuItem disabled>Info</JMenuItem>
+    <JMenuItem disabled>
+      Info
+    </JMenuItem>
     <JMenuItem>Orders</JMenuItem>
   </JMenuBase>
 </template>

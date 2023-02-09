@@ -1,6 +1,6 @@
 <template>
   <div class="jili-dropdown-menu">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

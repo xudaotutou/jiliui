@@ -18,7 +18,10 @@
         <div class="jili-delta" />
       </div>
     </div>
-    <div class="jili-show-input" :style="{ 'display': `${showInput?'block':'none'}`}">
+    <div
+      class="jili-show-input"
+      :style="{ 'display': `${showInput?'block':'none'}`}"
+    >
       <div
         class="jili-decline"
         :class="{'jili-disabled':rate===min}"
@@ -43,7 +46,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-let rate = ref(0)
+const rate = ref(0)
 
 const props = defineProps({
   min: {

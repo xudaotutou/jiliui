@@ -5,10 +5,13 @@
     @mouseout="hideDropdown"
   >
     <span class="jili-dropdown-link">
-      <slot></slot>
+      <slot />
     </span>
-    <span class="jili-dropdown-menu-wrapper" :class="{'is-show': isShow}">
-      <slot name="dropdown"></slot>
+    <span
+      class="jili-dropdown-menu-wrapper"
+      :class="{'is-show': isShow}"
+    >
+      <slot name="dropdown" />
     </span>
   </div>
 </template>
@@ -16,13 +19,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-let isShow = ref(true)
+const isShow = ref(true)
 
-function showDropdown() {
+function showDropdown () {
   isShow.value = false
-  
 }
-function hideDropdown() {
+function hideDropdown () {
   isShow.value = true
 }
 </script>

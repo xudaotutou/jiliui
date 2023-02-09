@@ -10,11 +10,14 @@ import JSliderBase from '../../packages/components/slider'
   <h2>step=20</h2>
   <JSliderBase :step="20" />
   <h2>No tooltip</h2>
-  <JSliderBase :show-tooltip="false"/>
+  <JSliderBase :show-tooltip="false" />
   <h2>No input</h2>
-  <JSliderBase :show-input="false"/>
+  <JSliderBase :show-input="false" />
   <h2>min=20, max=300</h2>
-  <JSliderBase :min="20" :max="300"/>
+  <JSliderBase
+    :min="20"
+    :max="300"
+  />
 </template>
 
 <style scoped>
