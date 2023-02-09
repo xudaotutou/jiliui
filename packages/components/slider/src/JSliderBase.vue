@@ -1,27 +1,27 @@
 <template>
-  <div class="slider-wrapper">
+  <div class="jili-slider-wrapper">
     <input
       v-model="rate"
-      class="slider-inner"
+      class="jili-slider-inner"
       type="range"
       :min="min"
       :max="max"
       :step="step"
-      :style="{'background-size': `${rate}% 100%`}"
+      :style="{'background-size': `${(rate-min)/(max-min)*100}% 100%`}"
     >
-    <div class="show-tooltip">
+    <div class="jili-show-tooltip">
       <div
-        class="show-rate"
-        :style="{'left': `${rate}%`, 'display': `${showTooltip}`}"
+        class="jili-show-rate"
+        :style="{'left': `${(rate-min)/(max-min)*100}%`, 'display': `${showTooltip?'block':'none'}`}"
       >
         {{ rate }}
-        <div class="delta" />
+        <div class="jili-delta" />
       </div>
     </div>
-    <div class="show-input">
+    <div class="jili-show-input" :style="{ 'display': `${showInput?'block':'none'}`}">
       <div
-        class="decline"
-        :class="{'disabled':rate===0}"
+        class="jili-decline"
+        :class="{'jili-disabled':rate===min}"
         @click="changeRate(-1)"
       >
         -
@@ -31,8 +31,8 @@
         type="number"
       >
       <div
-        class="increase"
-        :class="{'disabled':rate===100}"
+        class="jili-increase"
+        :class="{'jili-disabled':rate===max}"
         @click="changeRate(1)"
       >
         +
@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-const rate = ref(0)
+let rate = ref(0)
 
 const props = defineProps({
   min: {
@@ -73,8 +73,8 @@ const props = defineProps({
   }
 })
 function changeRate (n: number) {
-  if (rate.value + n <= 0) rate.value = 0
-  else if (rate.value + n >= 100) rate.value = 100
+  if (Number(rate.value) + Number(n) <= Number(props.min)) rate.value = props.min
+  else if (Number(rate.value) + Number(n) >= Number(props.max)) rate.value = props.max
   else rate.value = Number(rate.value) + Number(n)
 }
 </script>
@@ -83,26 +83,27 @@ function changeRate (n: number) {
 * {
   box-sizing: border-box;
 }
-.slider-wrapper {
+.jili-slider-wrapper {
   position: relative;
   width: 1000px;
   height: 50px;
   padding-top: 30px;
+  margin-bottom: 30px;
 }
 
-.slider-inner {
+.jili-slider-inner {
   cursor: grab;
   width: 500px;
   height: 10px;
 }
 
-.slider-inner:active {
+.jili-slider-inner:active {
   cursor: grabbing;
 }
-.slider-inner:hover+.show-tooltip {
+.jili-slider-inner:hover+.jili-show-tooltip {
   opacity: 1;
 }
-.show-tooltip {
+.jili-show-tooltip {
   position: absolute;
   top: 30px;
   left: 0;
@@ -111,7 +112,7 @@ function changeRate (n: number) {
   opacity: 0;
   transition: .3s;
 }
-.show-rate {
+.jili-show-rate {
   position: absolute;
   left: 0%;
   top: -20px;
@@ -125,7 +126,7 @@ function changeRate (n: number) {
   background-color: #303133;
   color: #fff;
 }
-.delta {
+.jili-delta {
   width: 0px;
   height: 0px;
   position: absolute;
@@ -135,7 +136,7 @@ function changeRate (n: number) {
   border: 4px solid transparent;
   border-top: 4px solid #303133;
 }
-.show-input {
+.jili-show-input {
   position: absolute;
   top: 30px;
   left: 100%;
@@ -172,7 +173,7 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: -5px;
   /* transform: translateY(-50%); */
 }
-input[type=range]:focus::-webkit-slider-thumb {
+input[type=range]:active::-webkit-slider-thumb {
   cursor: grabbing;
 }
 /* input[type=range]:focus::-webkit-slider-runnable-track {
@@ -235,7 +236,7 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #fff;
 }
-.show-input {
+.jili-show-input {
   margin-left: 20px;
   width: 110px;
   height: 25px;
@@ -258,8 +259,8 @@ input[type='number'] {
   left: 24px;
   transition: .3s;
 }
-.decline,
-.increase {
+.jili-decline,
+.jili-increase {
   width: 25px;
   height: 25px;
   line-height: 23px;
@@ -272,28 +273,28 @@ input[type='number'] {
   background: #f5f7fa;
   user-select:none;
 }
-.disabled {
+.jili-disabled {
   cursor: not-allowed;
 }
-.decline {
+.jili-decline {
   left: 0;
   border-radius: 5px 0 0 5px;
 }
-.increase {
+.jili-increase {
   left: 83px;
   border-radius: 0 5px 5px 0;
 }
-.show-input:hover .decline {
+.jili-show-input:hover .jili-decline {
   border-top: 1px solid #c0c4cc;
   border-left: 1px solid #c0c4cc;
   border-bottom: 1px solid #c0c4cc;
 }
-.show-input:hover .increase {
+.jili-show-input:hover .jili-increase {
   border-top: 1px solid #c0c4cc;
   border-right: 1px solid #c0c4cc;
   border-bottom: 1px solid #c0c4cc;
 }
-.show-input:hover input {
+.jili-show-input:hover input {
   border-top: 1px solid #c0c4cc;
   border-bottom: 1px solid #c0c4cc;
 }

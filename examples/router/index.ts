@@ -27,6 +27,14 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/myBackToTop',
     component: async () => await import('../components/myBackToUp.vue')
+  },
+  {
+    path: '/dropdown',
+    component: async () => await import('../components/myDropdown.vue')
+  },
+  {
+    path: '/menu',
+    component: async () => await import('../components/myMenu.vue')
   }
 ]
 const router = createRouter({
