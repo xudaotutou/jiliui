@@ -29,6 +29,10 @@ const routes: RouteRecordRaw[] = [
     component: async () => await import('../components/myBackToUp.vue')
   },
   {
+    path: '/steps',
+    component: async () => await import('../components/mySteps.vue')
+  },
+  {
     path: '/dropdown',
     component: async () => await import('../components/myDropdown.vue')
   },
