@@ -2,26 +2,36 @@
   <div class="inline-container">
     <template v-if="type === 'textarea'">
       <textarea
-        class="r-textarea"
+        class="jl-textarea"
         :class="styleClass"
         :disabled="disabled"
         v-bind="$attrs"
         :value="modelValue"
         @input="onInput"
-      ></textarea>
+      />
     </template>
     <template v-else>
-      <div class="r-input-outer">
-        <input
-          type="text"
-          class="r-input"
-          :class="styleClass"
-          v-bind="$attrs"
-          :value="modelValue"
-          :disabled="disabled"
-          @input="onInput"
-        />
-        <span v-if="showClear" class="r-input-clear" @click="clearItem">x</span>
+      <div class="inline-container" :class="fixBorder">
+        <div class="jl-input-prepend" v-if="$slots.prepend">
+          <slot name="prepend"></slot>
+        </div>
+        <div class="jl-input-outer">
+          <input
+            type="text"
+            class="jl-input"
+            :class="styleClass"
+            v-bind="$attrs"
+            :value="modelValue"
+            :disabled="disabled"
+            @input="onInput"
+          />
+          <span v-if="showClear" class="jl-input-clear" @click="clearItem"
+            >x</span
+          >
+        </div>
+        <div class="jl-input-append" v-if="$slots.append">
+          <slot name="append"></slot>
+        </div>
       </div>
     </template>
   </div>
@@ -55,13 +65,18 @@ export default defineComponent({
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+    center: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["update:modelValue"],
-  setup(props, { emit, attrs }) {
+  setup(props, { emit, attrs, slots }) {
     // props
-    const { modelValue, type, size, clearable, disabled } = toRefs(props);
+    const { modelValue, type, size, clearable, disabled, center } =
+      toRefs(props);
 
     // methods
     function onInput(e) {
@@ -74,19 +89,25 @@ export default defineComponent({
     // computed
     const styleClass = computed(() => {
       return {
-        [`r-input--${size.value}`]: size && type.value != "textarea",
-        'is-disabled': disabled.value
+        [`jl-input--${size.value}`]: size.value && type.value != "textarea",
+        "is-disabled": disabled.value,
+        "is-center": center.value,
       };
     });
-    const showClear = computed( () => {
-      return clearable.value && modelValue.value != ''
+    const showClear = computed(() => {
+      return clearable.value && modelValue.value != "";
     });
+    const fixBorder = computed(() => {
+      return {
+        "has-prepend": slots.prepend,
+        "has-append": slots.append
+      };
+    });
+
     return {
-      modelValue,
-      type,
-      disabled,
       showClear,
       styleClass,
+      fixBorder,
       onInput,
       clearItem,
     };
@@ -95,7 +116,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.r-input {
+.jl-input {
   -webkit-appearance: none;
   background-color: #fff;
   background-image: none;
@@ -120,49 +141,48 @@ export default defineComponent({
   cursor: not-allowed;
 }
 
-
-.r-input.is-center {
+.jl-input.is-center {
   text-align: center;
 }
 
-.r-input:hover {
+.jl-input:hover {
   border-color: #c0c4cc;
 }
 
-.r-input:focus {
+.jl-input:focus {
   outline: none;
   border-color: #409eff;
 }
 
-.r-input::-webkit-scrollbar {
+.jl-input::-webkit-scrollbar {
   z-index: 11;
   width: 6px;
 }
 
-.r-input::-webkit-scrollbar:horizontal {
+.jl-input::-webkit-scrollbar:horizontal {
   height: 6px;
 }
 
-.r-input::-webkit-scrollbar-thumb {
+.jl-input::-webkit-scrollbar-thumb {
   border-radius: 5px;
   width: 6px;
   background: #b4bccc;
 }
 
-.r-input::-webkit-scrollbar-corner {
+.jl-input::-webkit-scrollbar-corner {
   background: #fff;
 }
 
-.r-input::-webkit-scrollbar-track {
+.jl-input::-webkit-scrollbar-track {
   background: #fff;
 }
 
-.r-input::-webkit-scrollbar-track-piece {
+.jl-input::-webkit-scrollbar-track-piece {
   background: #fff;
   width: 6px;
 }
 
-.r-textarea {
+.jl-textarea {
   display: block;
   resize: vertical;
   padding: 5px 15px;
@@ -178,13 +198,13 @@ export default defineComponent({
   transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.r-textarea:focus {
+.jl-textarea:focus {
   outline: none;
   border-color: #409eff;
 }
 
-.r-input-prepend,
-.r-input-append {
+.jl-input-prepend,
+.jl-input-append {
   background-color: #f5f7fa;
   color: #909399;
   display: flex;
@@ -197,39 +217,39 @@ export default defineComponent({
   width: max-content;
 }
 
-.has-prepend .r-input {
+.has-prepend .jl-input {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   border-left: none;
 }
 
-.has-append .r-input {
+.has-append .jl-input {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   border-right: none;
 }
 
-.has-prepend .r-input-prepend {
+.has-prepend .jl-input-prepend {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 
-.has-prepend .r-input-append {
+.has-prepend .jl-input-append {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
-.has-append .r-input-append {
+.has-append .jl-input-append {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
-.r-input--medium {
+.jl-input--medium {
   height: 36px;
   line-height: 36px;
 }
 
-.r-input--small {
+.jl-input--small {
   height: 32px;
   line-height: 32px;
 }
@@ -239,12 +259,12 @@ export default defineComponent({
   display: inline-flex;
 }
 
-.r-input-outer {
+.jl-input-outer {
   width: 100%;
   position: relative;
 }
 
-.r-input-clear {
+.jl-input-clear {
   position: absolute;
   right: 5px;
   top: 50%;
