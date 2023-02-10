@@ -61,7 +61,7 @@ export default defineConfig(({ mode }) => {
       (function Outputcss() {
         return {
           name: "vite:Outputcss",
-          // apply: "build",
+          apply: "build",
           async transform(code, id, opt) {
             const [filename, rawQuery] = id.split(`?`, 2);
             console.log("transform", id);

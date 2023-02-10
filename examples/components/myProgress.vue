@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import JProgress from '../../packages/components/rprogress/src/JRProgress.vue'
+import JRProgress from '~/components/rprogress/src/JRProgress.vue'
+import JProgress from '~/components/progress/src/JProgress.vue'
 </script>
 
 <template>
-  <JProgress
+  <JRProgress
     :value="70"
-    max="100"
   >
-    nihao
-  </JProgress>
+    70%
+  </JRProgress>
+  <JProgress
+    :max="100"
+  />
 </template>
-
-<style scoped>
-
-</style>

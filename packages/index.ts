@@ -22,7 +22,7 @@ function install (vue: App): void {
   if (installed) return
   installed = true
   components.forEach((comp) => {
-    vue.use(comp)
+    if (comp.install !== undefined) vue.use(comp)
   })
 }
 

@@ -51,7 +51,6 @@ const myStyle = computed(() => {
 .radial-progress {
     @apply rounded-full relative flex items-center justify-center;
     --value: 40;
-
     --thickness: 10;
     --size: 10rem;
     --start: 180;
@@ -61,11 +60,7 @@ const myStyle = computed(() => {
     --content-col: blue;
     --content-n-col: red;
     --ball-col: black;
-    /* 0.5的参数是调的，算出来应该是1 */
-    --bar-r-percentage: calc(
-      var(--thickness) / 2 / (var(--thickness) / 2 + 0.5) * 100%
-    );
-    --bar-r: calc((var(--thickness) / 2 - 2.25) * 1%);
+    --bar-r: calc((var(--thickness) / 4 + 0.5) * 1%);
     width: var(--size);
     height: var(--size);
     &::after,
@@ -77,12 +72,15 @@ const myStyle = computed(() => {
       @apply inset-0;
       background: radial-gradient(
             farthest-side,
-            var(--ball-col) var(--bar-r-percentage),
+            /* var(--ball-col) var(--bar-r-percentage), */
+            /* transparent */
+            var(--ball-col) 95%,
             transparent
           )
-          top/calc((var(--thickness) + 1)/ 2 * 1%)
-          calc((var(--thickness) + 1) / 2 * 1%) no-repeat,
+          top/calc((var(--thickness) + 2)/ 2 * 1%)
+          calc((var(--thickness) + 2) / 2 * 1%) no-repeat,
         conic-gradient(
+          /* farthest-side, */
           var(--content-col) var(--percentage),
           transparent var(--percentage),
           transparent calc(100% + var(--percentage)),
@@ -90,8 +88,8 @@ const myStyle = computed(() => {
         );
       -webkit-mask: radial-gradient(
         farthest-side,
-        transparent calc(99% - var(--thickness) * 1%),
-        rgb(0, 0, 0) calc(100% - var(--thickness) * 1%),
+        transparent calc(98% - var(--thickness) * 1%),
+        rgb(0, 0, 0) calc(99% - var(--thickness) * 1%),
         rgb(0, 0, 0) 99%,
         transparent 100%
       );
@@ -110,7 +108,7 @@ const myStyle = computed(() => {
       inset: calc(50% - var(--bar-r));
       background: radial-gradient(
         farthest-side,
-        var(--ball-col) var(--bar-r-percentage),
+        var(--ball-col) 95%,
         transparent
       );
       transform: rotate(
