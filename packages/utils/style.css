@@ -1,7 +1,5 @@
 @import "tailwindcss/base";
-@import "../components/base/base.css";
 
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
-/* @import "../components/layout/Jlayout.css" */

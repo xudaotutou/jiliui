@@ -1,4 +1,4 @@
-const css = require("../../../dist/components/layout/Jlayout.cjs")['@global']
+const css = require("./src/JLayout.vue.cjs")['@global']
 module.exports = {
   match_u: {
     'w-offset-r'(value){
