@@ -71,10 +71,10 @@ export default defineConfig(({ mode }) => {
             ) {
               // let _filename = filename.split("/").pop();
               // const output = path.resolve(__dirname, "./dist/style");
-              // const css_file = path.resolve(output, `${filename}.css`);
+              const css_file = `${filename}.css`;
               const jcss_file = `${filename}.cjs`;
               console.log("transform", jcss_file);
-              // await fs.writeFile(css_file, code);
+              await fs.writeFile(css_file, code);
               await fs.writeFile(
                 jcss_file,
                 `module.exports=${JSON.stringify(jss_cli.cssToJss({ code }))}`,

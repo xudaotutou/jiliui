@@ -6,10 +6,12 @@ import JProgress from '~/components/progress/src/JProgress.vue'
 <template>
   <JRProgress
     :value="70"
+    max="100"
   >
     70%
   </JRProgress>
   <JProgress
+    :value="70"
     :max="100"
   />
 </template>

@@ -72,15 +72,12 @@ const myStyle = computed(() => {
       @apply inset-0;
       background: radial-gradient(
             farthest-side,
-            /* var(--ball-col) var(--bar-r-percentage), */
-            /* transparent */
             var(--ball-col) 95%,
             transparent
           )
           top/calc((var(--thickness) + 2)/ 2 * 1%)
           calc((var(--thickness) + 2) / 2 * 1%) no-repeat,
         conic-gradient(
-          /* farthest-side, */
           var(--content-col) var(--percentage),
           transparent var(--percentage),
           transparent calc(100% + var(--percentage)),
