@@ -23,6 +23,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/input',
     component: async () => await import('../components/myInput.vue')
+  },
+  {
+    path: '/inputnumber',
+    component: async () => await import('../components/myInpuNumber.vue')
   }
 
 ]

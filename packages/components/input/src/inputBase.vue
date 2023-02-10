@@ -11,9 +11,15 @@
       />
     </template>
     <template v-else>
-      <div class="inline-container" :class="fixBorder">
-        <div class="jl-input-prepend" v-if="$slots.prepend">
-          <slot name="prepend"></slot>
+      <div
+        class="inline-container"
+        :class="fixBorder"
+      >
+        <div
+          v-if="$slots.prepend"
+          class="jl-input-prepend"
+        >
+          <slot name="prepend" />
         </div>
         <div class="jl-input-outer">
           <input
@@ -24,13 +30,18 @@
             :value="modelValue"
             :disabled="disabled"
             @input="onInput"
-          />
-          <span v-if="showClear" class="jl-input-clear" @click="clearItem"
-            >x</span
           >
+          <span
+            v-if="showClear"
+            class="jl-input-clear"
+            @click="clearItem"
+          >x</span>
         </div>
-        <div class="jl-input-append" v-if="$slots.append">
-          <slot name="append"></slot>
+        <div
+          v-if="$slots.append"
+          class="jl-input-append"
+        >
+          <slot name="append" />
         </div>
       </div>
     </template>
