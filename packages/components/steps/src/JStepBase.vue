@@ -11,48 +11,53 @@
         {{ props.value.active > props.num ? "√" : props.num }}
       </div>
       <div
+        v-if="!props.end"
         class="jili_line"
         :class="{
           jili_lines: props.value.active > props.num,
         }"
         :style="wid"
-        v-if="!props.end"
-      ></div>
+      />
     </div>
     <div
-      class="jili_step_title"
       v-if="props.title"
+      class="jili_step_title"
       :class="{
         jili_black: props.value.active === props.num,
         jili_green: props.value.active > props.num,
       }"
     >
       <div>{{ props.title }}</div>
-      <div v-if="props.description">{{ props.description }}</div>
+      <div v-if="props.description">
+        {{ props.description }}
+      </div>
     </div>
-    <div class="last" v-if="props.end"></div>
+    <div
+      v-if="props.end"
+      class="last"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, defineProps, watch } from "vue";
+import { ref, defineProps, watch } from 'vue'
 const props: any = defineProps({
   num: Number,
   title: String,
   description: String,
   end: String,
-  value: {},
-});
-const wid = ref();
+  value: {}
+})
+const wid = ref()
 watch(props, () => {
   // 设置两个节点之间的过度条长度
   // console.log(props.value);
   if (props.value.direction) {
-    wid.value = { height: `${props.value.len}px` };
+    wid.value = { height: `${props.value.len}px` }
   } else {
-    wid.value = { width: `${props.value.len}px` };
+    wid.value = { width: `${props.value.len}px` }
   }
-});
+})
 </script>
 
 <style scoped>

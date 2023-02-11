@@ -21,6 +21,15 @@ const routes: RouteRecordRaw[] = [
     component: async () => await import('../components/myScrollbar.vue')
   },
   {
+    path: '/input',
+    component: async () => await import('../components/myInput.vue')
+  },
+  {
+    path: '/inputnumber',
+    component: async () => await import('../components/myInpuNumber.vue')
+
+  },
+  {
     path: '/calendar',
     component: async () => await import('../components/myCalendar.vue')
   },
