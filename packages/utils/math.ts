@@ -8,8 +8,16 @@ const forceSmall = (end: number) => (origin: number) => {
 }
 const forceInRange = (start: number) => (end: number) => (origin: number) => forceSmall(end)(forceLarge(start)(origin))
 
+const idSetup = (ctx: number):(() => Uint32Array) => {
+  const array = new Uint32Array(ctx)
+  return () => {
+    const val = window.crypto.getRandomValues(array)
+    return val
+  }
+}
 export {
   forceInRange,
   forceLarge,
-  forceSmall
+  forceSmall,
+  idSetup
 }

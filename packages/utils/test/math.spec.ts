@@ -1,4 +1,4 @@
-import { forceInRange, forceSmall, forceLarge } from '../math'
+import { forceInRange, forceSmall, forceLarge, idSetup } from '../math'
 
 describe('forceSmall', () => {
   it('must be >=', () => {
@@ -29,5 +29,18 @@ describe('forceLarge', () => {
     it('allow <', () => {
       expect(forceLarge(100)(123)).toBe(100)
     })
+  })
+})
+describe('idsetup', () => {
+  it('different init', () => {
+    expect(idSetup(1)()[0]).not.toBe(idSetup(2)()[0])
+    expect(idSetup(1)()[0]).not.toBe(idSetup(2)()[0])
+    expect(idSetup(1)()[0]).not.toBe(idSetup(2)()[0])
+  })
+  it('same init, different output', () => {
+    const getId = idSetup(10)
+    expect(getId()[0]).not.toBe(getId()[0])
+    expect(getId()[0]).not.toBe(getId()[0])
+    expect(getId()[0]).not.toBe(getId()[0])
   })
 })
