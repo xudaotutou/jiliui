@@ -3,6 +3,7 @@
     <myInput
       v-model="count"
       center
+      :disabled="disable"
     >
       <template #prepend>
         <div
@@ -28,7 +29,12 @@
 
 <script lang="ts">
 import myInput from "../../input/src/inputBase.vue";
-import { defineComponent, ref, toRefs, computed } from "vue";
+import {
+  defineComponent,
+  ref,
+  toRefs,
+  computed,
+} from "vue";
 export default defineComponent({
   components: {
     myInput,
@@ -54,10 +60,14 @@ export default defineComponent({
       type: Boolean,
       defalut: false,
     },
+    precision: {
+        type: Number,
+        default:0
+    }
   },
-  emits: ["update:modelValue"],
+  emits: ["update:modelValue","change"],
   setup(props, { emit }) {
-    const { modelValue, step, max, min, disable } = toRefs(props);
+    const { modelValue, step, max, min, disable, precision } = toRefs(props);
 
     // methods
     function handleClick(type) {
@@ -65,40 +75,63 @@ export default defineComponent({
         return;
       }
       let numberBase = Number(modelValue.value);
+      if (numberBase > max.value) {
+        emit("update:modelValue", max.value.toFixed(precision.value));
+        return;
+      } else if (numberBase < min.value) {
+        emit("update:modelValue", min.value.toFixed(precision.value));
+        return;
+      }
       if (type === "increase") {
         if (step.value >= 0) {
           if (numberBase >= max.value || numberBase + step.value >= max.value) {
-            emit("update:modelValue", String(max.value));
+            emit("update:modelValue", max.value.toFixed(precision.value));
             return;
           }
         }
         // step<0
         else {
           if (numberBase <= min.value || numberBase + step.value <= min.value) {
-            emit("update:modelValue", String(min.value));
+            emit("update:modelValue", min.value.toFixed(precision.value));
             return;
           }
         }
-        emit("update:modelValue", String(numberBase + step.value));
+        emit("update:modelValue", (numberBase + step.value).toFixed(precision.value));
       } else {
         if (step.value >= 0) {
           if (numberBase <= min.value || numberBase - step.value <= min.value) {
-            emit("update:modelValue", String(min.value));
+            emit("update:modelValue", min.value.toFixed(precision.value));
             return;
           }
         } else {
           if (numberBase >= max.value || numberBase - step.value >= max.value) {
-            emit("update:modelValue", String(max.value));
+            emit("update:modelValue", max.value.toFixed(precision.value));
             return;
           }
         }
-        emit("update:modelValue", String(numberBase - step.value));
+        emit("update:modelValue", (numberBase - step.value).toFixed(precision.value));
       }
     }
 
+    function isNumber(obj) {
+      return typeof obj === "number" && !isNaN(obj);
+    }
+
     // computed
-    const count = computed(() => {
-      return modelValue.value;
+    const count = computed({
+      get() {
+        return modelValue.value;
+      },
+      set(newValue) {
+        // 说明不是正确地字符串数字
+        if (!isNumber(newValue - 0)) {
+          emit("update:modelValue", modelValue.value);
+          emit("change", modelValue.value);
+          return;
+        }
+        emit("update:modelValue", newValue);
+        emit("change", newValue);
+      },
     });
     const increaseDisable = computed(() => {
       return {

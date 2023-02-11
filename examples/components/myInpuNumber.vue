@@ -2,7 +2,10 @@
   <div>
     <h2>1、基础用法</h2>
     <div class="box">
-      <inputNumber v-model="count" />
+      <inputNumber
+        v-model="count"
+        @change="changeHandle"
+      />
     </div>
     <h2>2、允许定义递增递减的步进控制</h2>
     <div class="box">
@@ -26,6 +29,16 @@
         :min="1"
       />
     </div>
+    <h2>5、设置 precision 属性可以控制数值精度，接收一个 Number。</h2>
+    <div class="box">
+      <inputNumber
+        v-model="coutFix"
+        :max="15"
+        :min="1"
+        :precision="2"
+        :step="-1.2"
+      />
+    </div>
   </div>
 </template>
 
@@ -38,14 +51,21 @@ export default {
   data() {
     return {
       count: "5",
+      coutFix: "5.00"
     };
+  },
+  methods: {
+    // 追踪输入框的输入值
+    changeHandle(e) {
+      console.log(e);
+    },
   },
 };
 </script>
 
 <style scoped>
 .box {
-  width: 120px;
+  width: 140px;
   margin: 20px;
   margin-top: 7px;
 }

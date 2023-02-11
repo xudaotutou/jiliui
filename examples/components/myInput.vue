@@ -5,6 +5,7 @@
       <myInput
         v-model="msg"
         placeholder="Please Input"
+        @input="oninput"
       />
       <span>msg:</span> {{ msg }}
     </div>
@@ -84,14 +85,20 @@
 
 <script>
 import myInput from "../../packages/components/input/src/inputBase.vue";
+import {ref} from 'vue'
 export default {
   components: {
     myInput,
   },
-  data() {
+  setup() {
+    let msg = ref('hello world')
+    function oninput(e) {
+      console.log(e)
+    }
     return {
-      msg: "hello world",
-    };
+      msg,
+      oninput
+    }
   }
 };
 </script>

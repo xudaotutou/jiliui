@@ -83,7 +83,7 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ["update:modelValue"],
+  emits: ["update:modelValue","input"],
   setup(props, { emit, attrs, slots }) {
     // props
     const { modelValue, type, size, clearable, disabled, center } =
@@ -92,6 +92,7 @@ export default defineComponent({
     // methods
     function onInput(e) {
       emit("update:modelValue", e.target.value);
+      emit("input", e.target.value)
     }
     function clearItem() {
       emit("update:modelValue", "");
