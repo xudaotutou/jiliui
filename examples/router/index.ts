@@ -39,6 +39,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/menu',
     component: async () => await import('../components/myMenu.vue')
+  },
+  {
+    path: '/progress',
+    component: async () => await import('../components/myProgress.vue')
   }
 ]
 const router = createRouter({

@@ -21,7 +21,7 @@ withDefaults(defineProps<{
     </a>
   </div>
 </template>
-<style>
+<style lang="postcss">
 @media screen and (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

@@ -19,12 +19,8 @@
     }
   },
   "scripts": {
-    "b_css_pre": "postcss --config ./packages --base packages --dir dist",
-    "b_base": "pnpm b_css_pre ./packages/components/base/base.css  && jss  convert ./dist/components/base/base.css -f js -e cjs > ./dist/components/base/base.cjs",
-    "b_backToTop": "pnpm b_css_pre ./packages/components/backToTop/backToTop.css  && jss  convert ./dist/components/backToTop/backToTop.css -f js -e cjs > ./dist/components/backToTop/backToTop.cjs",
-    "b_Jlayout": "pnpm b_css_pre ./packages/components/layout/Jlayout.css  && jss  convert ./dist/components/layout/Jlayout.css -f js -e cjs > ./dist/components/layout/Jlayout.cjs",
-    "dev": "pnpm b_Jlayout && pnpm b_base && pnpm b_backToTop && vite",
-    "build": "vue-tsc && vite build && pnpm b_base && pnpm b_Jlayout && pnpm b_backToTop",
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
     "test": "vitest run",
     "test:w": "vitest -w",
     "coverage": "vitest run --coverage",
@@ -42,6 +38,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@vitejs/plugin-vue": "^4.0.0",
+    "@vitest/coverage-c8": "^0.28.4",
     "@vue/runtime-core": "^3.2.47",
     "@vue/test-utils": "2.0.0-rc.18",
     "autoprefixer": "^10.4.13",
