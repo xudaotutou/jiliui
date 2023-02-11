@@ -83,16 +83,16 @@
   </div>
 </template>
 
-<script>
-import myInput from "../../packages/components/input/src/inputBase.vue";
-import {ref} from 'vue'
+<script lang="ts">
+import myInput from '../../packages/components/input/src/inputBase.vue'
+import { ref } from 'vue'
 export default {
   components: {
-    myInput,
+    myInput
   },
-  setup() {
-    let msg = ref('hello world')
-    function oninput(e) {
+  setup () {
+    const msg = ref('hello world')
+    function oninput (e:any) {
       console.log(e)
     }
     return {
@@ -100,7 +100,7 @@ export default {
       oninput
     }
   }
-};
+}
 </script>
 
 <style scoped>

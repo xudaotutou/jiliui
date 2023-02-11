@@ -27,8 +27,32 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/inputnumber',
     component: async () => await import('../components/myInpuNumber.vue')
-  }
 
+  },
+  {
+    path: '/calendar',
+    component: async () => await import('../components/myCalendar.vue')
+  },
+  {
+    path: '/myBackToTop',
+    component: async () => await import('../components/myBackToUp.vue')
+  },
+  {
+    path: '/steps',
+    component: async () => await import('../components/mySteps.vue')
+  },
+  {
+    path: '/dropdown',
+    component: async () => await import('../components/myDropdown.vue')
+  },
+  {
+    path: '/menu',
+    component: async () => await import('../components/myMenu.vue')
+  },
+  {
+    path: '/progress',
+    component: async () => await import('../components/myProgress.vue')
+  }
 ]
 const router = createRouter({
   routes,

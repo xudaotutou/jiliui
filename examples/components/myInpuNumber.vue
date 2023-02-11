@@ -36,31 +36,31 @@
         :max="15"
         :min="1"
         :precision="2"
-        :step="-1.2"
+        :step="1.2"
       />
     </div>
   </div>
 </template>
 
-<script>
-import inputNumber from "../../packages/components/input-number/src/inputNumberBase.vue";
+<script lang="ts">
+import inputNumber from '../../packages/components/input-number/src/inputNumberBase.vue'
 export default {
   components: {
-    inputNumber,
+    inputNumber
   },
-  data() {
+  data () {
     return {
-      count: "5",
-      coutFix: "5.00"
-    };
+      count: '5',
+      coutFix: '5.00'
+    }
   },
   methods: {
     // 追踪输入框的输入值
-    changeHandle(e) {
-      console.log(e);
-    },
-  },
-};
+    changeHandle (e:any) {
+      console.log(e)
+    }
+  }
+}
 </script>
 
 <style scoped>

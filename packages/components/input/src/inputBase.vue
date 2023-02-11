@@ -49,82 +49,82 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, toRefs } from "vue";
+import { computed, defineComponent, ref, toRefs } from 'vue'
 export default defineComponent({
   props: {
     modelValue: {
       type: String,
-      default: "",
+      default: ''
     },
     type: {
       type: String,
-      default: "text",
-      validator: (value) => {
-        return ["text", "textarea"].includes(value);
-      },
+      default: 'text',
+      validator: (value:any) => {
+        return ['text', 'textarea'].includes(value)
+      }
     },
     size: {
       type: String,
-      default: "",
+      default: '',
       validator: (value) => {
-        return ["", "medium", "small"].includes(value);
-      },
+        return ['', 'medium', 'small'].includes(value as any)
+      }
     },
     clearable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     center: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  emits: ["update:modelValue","input"],
-  setup(props, { emit, attrs, slots }) {
+  emits: ['update:modelValue', 'input'],
+  setup (props, { emit, attrs, slots }) {
     // props
     const { modelValue, type, size, clearable, disabled, center } =
-      toRefs(props);
+      toRefs(props)
 
     // methods
-    function onInput(e) {
-      emit("update:modelValue", e.target.value);
-      emit("input", e.target.value)
+    function onInput (e:any) {
+      emit('update:modelValue', e.target.value)
+      emit('input', e.target.value)
     }
-    function clearItem() {
-      emit("update:modelValue", "");
+    function clearItem () {
+      emit('update:modelValue', '')
     }
 
     // computed
     const styleClass = computed(() => {
       return {
-        [`jl-input--${size.value}`]: size.value && type.value != "textarea",
-        "is-disabled": disabled.value,
-        "is-center": center.value,
-      };
-    });
+        [`jl-input--${size.value}`]: size.value && type.value !== 'textarea',
+        'is-disabled': disabled.value,
+        'is-center': center.value
+      }
+    })
     const showClear = computed(() => {
-      return clearable.value && modelValue.value != "";
-    });
+      return clearable.value && modelValue.value !== ''
+    })
     const fixBorder = computed(() => {
       return {
-        "has-prepend": slots.prepend,
-        "has-append": slots.append
-      };
-    });
+        'has-prepend': slots.prepend,
+        'has-append': slots.append
+      }
+    })
 
     return {
       showClear,
       styleClass,
       fixBorder,
       onInput,
-      clearItem,
-    };
-  },
-});
+      clearItem
+    }
+  }
+})
 </script>
 
 <style scoped>

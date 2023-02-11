@@ -1,0 +1,92 @@
+.jili {
+  &-radial-progress {
+    @apply rounded-full relative flex items-center justify-center;
+    --value: 50;
+    --thickness: 10;
+    --size: 10rem;
+    --start: 180;
+    --end: 360;
+    --range: calc(var(--end) - var(--start));
+    --percentage: calc(var(--value) / 360 * var(--range) * 1%);
+    --content-col: blue;
+    --content-n-col: red;
+    --ball-col: black;
+    /* 0.5的参数是调的，算出来应该是1 */
+    --bar-r-percentage: calc(
+      var(--thickness) / 2 / (var(--thickness) / 2 + 0.5) * 100%
+    );
+    --bar-r: calc((var(--thickness) / 2 - 2.25) * 1%);
+    width: var(--size);
+    height: var(--size);
+    &::after,
+    &::before {
+      @apply rounded-full absolute;
+      content: "";
+    }
+    &::before {
+      @apply inset-0;
+      background: radial-gradient(
+            farthest-side,
+            var(--ball-col) var(--bar-r-percentage),
+            transparent
+          )
+          top/calc((var(--thickness) + 1)/ 2 * 1%)
+          calc((var(--thickness) + 1) / 2 * 1%) no-repeat,
+        conic-gradient(
+          var(--content-col) var(--percentage),
+          transparent var(--percentage),
+          transparent calc(100% + var(--percentage)),
+          var(--content-n-col) calc(100% + var(--percentage))
+        );
+      -webkit-mask: radial-gradient(
+        farthest-side,
+        transparent calc(99% - var(--thickness) * 1%),
+        rgb(0, 0, 0) calc(100% - var(--thickness) * 1%),
+        rgb(0, 0, 0) 99%,
+        transparent 100%
+      );
+      /* transparent 抗锯齿+ 造环 */
+      mask: radial-gradient(
+        farthest-side,
+        transparent calc(98% - var(--thickness) * 1%),
+        rgb(0, 0, 0) calc(99% - var(--thickness) * 1%),
+        rgb(0, 0, 0) 99%,
+        transparent 100%
+      );
+      transform: rotate(calc(calc(var(--start) - 180) * 1deg));
+    }
+    &::after {
+      @apply z-10;
+      inset: calc(50% - var(--bar-r));
+      background: radial-gradient(
+        farthest-side,
+        var(--ball-col) var(--bar-r-percentage),
+        transparent
+      );
+      transform: rotate(
+          calc(
+            var(--value) * var(--range) * 0.01deg + var(--start) * 1deg + 90deg
+          )
+        )
+        translate(calc(var(--size) / 2 - 50%));
+    }
+  }
+  &-.progress {
+    @apply bg-blue-100 appearance-none rounded-full;
+    --content-col: blue;
+    --bg-col: grey;
+    &::-webkit-progress-bar,
+    &::-moz-progress-bar {
+      @apply rounded-full;
+      background-color: var(--bg-col);
+    }
+    &::-webkit-progress-value {
+      @apply rounded-full;
+      background-color: var(--content-col);
+    }
+    &:indeterminate {
+      width: 80vw;
+      height: 20px;
+    }
+  }
+}

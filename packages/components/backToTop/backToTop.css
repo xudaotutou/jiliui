@@ -1,0 +1,12 @@
+.back-to-top-wrapper {
+  position: absolute;
+  height: 100%;
+  pointer-events: none;
+}
+
+.back-to-top {
+  display: inline-block;
+  position: sticky;
+  pointer-events: auto;
+  margin-top: 100vh;
+}

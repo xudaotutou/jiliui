@@ -19,9 +19,8 @@
     }
   },
   "scripts": {
-    "b_Jlayout": "postcss --config ./packages ./packages/components/layout/Jlayout.css --base packages --dir dist && jss convert ./dist/components/layout/Jlayout.css -f js -e cjs > ./dist/components/layout/Jlayout.cjs",
-    "dev": "pnpm b_Jlayout && vite",
-    "build": "vue-tsc && vite build && pnpm b_Jlayout",
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
     "test": "vitest run",
     "test:w": "vitest -w",
     "coverage": "vitest run --coverage",
@@ -39,6 +38,8 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@vitejs/plugin-vue": "^4.0.0",
+    "@vitest/coverage-c8": "^0.28.4",
+    "@vue/runtime-core": "^3.2.47",
     "@vue/test-utils": "2.0.0-rc.18",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.0.1",

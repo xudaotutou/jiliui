@@ -1,28 +1,25 @@
 <template>
   <div
-    class="alert"
-    :class="alertType"
+    :class="[alertType,alert]"
   >
     <div
       v-show="visible"
-      class="alertContent"
+      :class="alertContent"
       role="alert"
     >
       <div
-        class="title"
-        :class="[isCenter,isBold]"
+        :class="[isCenter,isBold,titleClass]"
       >
         {{ title }}
       </div>
       <template v-if="closable">
         <span
-          class="rightHandler"
+          :class="rightHandler"
           @click="handleClose"
         >{{ closeText }}</span>
       </template>
     </div>
     <p
-      class="description"
       :class="isCenter"
     >
       <slot>
@@ -34,6 +31,10 @@
 
 <script setup lang="ts">
 import { ref, toRefs, computed, withDefaults } from 'vue'
+const alert = ref('alert')
+const alertContent = ref('alertContent')
+const rightHandler = ref('rightHandler')
+const titleClass = ref('titleClass')
 const visible = ref(true)
     interface Props {
         title: string,
@@ -64,7 +65,7 @@ const isCenter = computed(() => {
   return props.center ? 'center' : ''
 })
 const alertType = computed(() => {
-  if (props.effect == 'dark') {
+  if (props.effect === 'dark') {
     return `${props.type}Dark`
   } else {
     return props.type
@@ -94,7 +95,7 @@ const handleClose = (evt:MouseEvent) => {
       align-items: center;
       justify-content: space-between;
     }
-    .title {
+    .titleClass {
       display: flex;
       align-items: center;
       flex: 1;

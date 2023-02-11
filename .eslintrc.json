@@ -6,7 +6,7 @@
   },
   "extends": [
     "plugin:vue/vue3-essential",
-    // "standard-with-typescript",
+    "standard-with-typescript",
     "eslint:recommended", 
     "plugin:@typescript-eslint/recommended",
     "plugin:tailwindcss/recommended",
@@ -50,9 +50,8 @@
     "tailwindcss/enforces-shorthand": "warn",
     "tailwindcss/migration-from-tailwind-2": "warn",
     "tailwindcss/no-arbitrary-value": "off",
-    "tailwindcss/no-custom-classname": ["warn", {
-      "config": "./tailwind.config.cjs"
-      }],
-    "tailwindcss/no-contradicting-classname": "error"
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/no-contradicting-classname": "error",
+    "vue/valid-template-root":"off"
   }
 }
