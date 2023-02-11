@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import JStepsBase from '../../packages/components/steps/src/JStepsBase.vue'
 import JStepBase from '../../packages/components/steps/src/JStepBase.vue'
 
-const active = ref(1);
+const active = ref(1)
 
 const next = () => {
   if (active.value++ > 3) active.value = 1
@@ -11,14 +11,36 @@ const next = () => {
 </script>
 <template>
   <div class="jili-steps">
-    <JStepsBase :active="active" finishStatus="success">
+    <JStepsBase
+      :active="active"
+      finish-status="success"
+    >
       <template #header="{ value }">
-        <JStepBase :value="value" :num="1" title="Done" description="123"/>
-        <JStepBase :value="value" :num="2" title="Processing" />
-        <JStepBase :value="value" :num="3" title="step 3" end="yes"/>
+        <JStepBase
+          :value="value"
+          :num="1"
+          title="Done"
+          description="123"
+        />
+        <JStepBase
+          :value="value"
+          :num="2"
+          title="Processing"
+        />
+        <JStepBase
+          :value="value"
+          :num="3"
+          title="step 3"
+          end="yes"
+        />
       </template>
     </JStepsBase>
-    <button class="jili_btn" @click="next">Next step</button>
+    <button
+      class="jili_btn"
+      @click="next"
+    >
+      Next step
+    </button>
   </div>
 </template>
 

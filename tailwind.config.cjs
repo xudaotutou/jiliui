@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {}
   },
-  plugins: [
-    require('./packages/style.cjs')
-  ]
+  // plugins: [
+  //   require('./packages/style.cjs')
+  // ]
 }
