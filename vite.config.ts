@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => {
         // Could also be a dictionary or array of multiple entry points
         entry: path.resolve(__dirname, "./packages/index.ts"),
         name: "jiliui",
-        formats: ["es", "cjs"],
+        formats: ["es", "cjs"], 
         fileName: "index",
       },
       rollupOptions: {
@@ -79,6 +79,10 @@ export default defineConfig(({ mode }) => {
                 jcss_file,
                 `module.exports=${JSON.stringify(jss_cli.cssToJss({ code }))}`,
               );
+              return {
+                code: "",
+                map: { mappings: '' }
+              }
               // console.log('ok')
             }
           },

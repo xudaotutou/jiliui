@@ -7,15 +7,20 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "packages"
   ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./style": {
-      "require": "./packages/style.cjs"
+    "./tw-style": {
+      "require": "./packages/style.cjs",
+      "import":"./packages/style.cjs"
+    },
+    "./style":{
+      "import":"./dist/index.css"
     }
   },
   "scripts": {

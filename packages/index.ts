@@ -17,19 +17,21 @@ const components = [
   JLayout,
   JTab
 ]
-let installed = false
+const installed = Symbol('install')
 
 function install (vue: App): void {
-  if (installed) return
-  installed = true
+  if ((vue as any)[installed] as boolean) return
+  (vue as any)[installed] = true
   components.forEach((comp) => {
-    if (comp.install !== undefined) vue.use(comp)
+    console.log(comp)
+    if (comp.install !== undefined) comp.install(vue)
   })
 }
 
-export {
+export default {
   install
 }
 export * from './components/buttons'
 export * from './components/calendar'
+
 // export * from './components/layout'
