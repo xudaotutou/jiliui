@@ -26,6 +26,7 @@ toggleLabel(0)
         class="z-10 rounded-t border border-b-0 border-black"
         :class="classes[idx]"
         :for="`${v}`"
+        :_order="idx"
         @click="toggleLabel(idx)"
       ><slot :name="`header-${idx}`" /></label>
     </div>
