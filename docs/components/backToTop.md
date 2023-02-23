@@ -2,13 +2,11 @@
 title: back to top
 lang: zh-CN
 ---
-I'm back to top
-
-## 返回顶部组件
+# BackToTop
 
 - 必须要放置在app根标签下
 
-### 基于 vue props
+## 基于 vue props
 
 - 用 top 插槽提供 top=${top}vh样式，默认是 90
 
@@ -23,7 +21,7 @@ I'm back to top
 
 ```
 
-### 基于提供的组件类
+## 基于提供的组件类
 
 - 更改top-[] 原子类可以自定义在距离视口
 - href="#top" 必须，html5标准提供的返回顶部
