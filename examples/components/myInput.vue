@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!-- <div>
     <div class="box">
       <h1>1、基础用法 placehlder属性 和双向绑定msg</h1>
       <myInput
@@ -25,13 +25,13 @@
       <myInput size="small" />
     </div>
     <div class="box">
-      <h1>4、使用clearable属性即可得到一个可一键清空的输入框</h1>
-      <myInput
-        v-model="msg"
-        :clearable="true"
-      />
-    </div>
-    <div class="box">
+      <h1>4、使用clearable属性即可得到一个可一键清空的输入框</h1> -->
+  <myInput
+    v-model="msg"
+    :clearable="true"
+  />
+  <!-- </div> -->
+  <!-- <div class="box">
       <h1>5、通过 disabled 属性指定是否禁用 input 组件</h1>
       <myInput
         placeholder="Please Input"
@@ -80,7 +80,7 @@
         </template>
       </myInput>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script lang="ts">
@@ -92,11 +92,13 @@ export default {
   },
   setup () {
     const msg = ref('hello world')
+    const input = ref('')
     function oninput (e:any) {
       console.log(e)
     }
     return {
       msg,
+      input,
       oninput
     }
   }

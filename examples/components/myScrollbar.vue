@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!-- <div>
     <h2>通过 height 属性设置滚动条高度，若不设置则根据父容器高度自适应。</h2>
     <div class="box">
       <scrollbar height="400px">
@@ -26,25 +26,25 @@
         </div>
       </scrollbar>
     </div>
-    <h2>当元素高度超过最大高度，才会显示滚动条</h2>
-    <div class="box3">
-      <button @click="add">
-        Add Item
-      </button>
-      <button @click="onDelete">
-        Delete Item
-      </button>
-      <scrollbar max-height="400px">
-        <p
-          v-for="item in count"
-          :key="item"
-          class="scrollbar-demo-item3"
-        >
-          {{ item }}
-        </p>
-      </scrollbar>
-    </div>
+    <h2>当元素高度超过最大高度，才会显示滚动条</h2> -->
+  <div class="box3">
+    <button @click="add">
+      Add Item
+    </button>
+    <button @click="onDelete">
+      Delete Item
+    </button>
+    <scrollbar max-height="400px">
+      <p
+        v-for="item in count"
+        :key="item"
+        class="scrollbar-demo-item3"
+      >
+        {{ item }}
+      </p>
+    </scrollbar>
   </div>
+  <!-- </div> -->
 </template>
 
 <script lang="ts">
@@ -126,5 +126,11 @@ export default {
   border-radius: 4px;
   background: #ecf5ff;
   color: #409eff;
+}
+button {
+    width: 100px;
+    height:30px;
+    background-color: #ffcd32;
+    margin: 10px
 }
 </style>
