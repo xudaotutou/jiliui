@@ -1,38 +1,53 @@
 <template>
-    <div class="box" v-if="arrange===1">
-      <inputNumber
-        v-model="count"
-        @change="changeHandle"
-      />
-    </div>
-    <div class="box"  v-if="arrange===2">
-      <inputNumber
-        v-model="count"
-        :step="3"
-      />
-    </div>
-    <div class="box"  v-if="arrange===3">
-      <inputNumber
-        v-model="count"
-        disable
-      />
-    </div>
-    <div class="box"  v-if="arrange===4">
-      <inputNumber
-        v-model="count"
-        :max="15"
-        :min="1"
-      />
-    </div>
-    <div class="box"  v-if="arrange===5">
-      <inputNumber
-        v-model="coutFix"
-        :max="15"
-        :min="1"
-        :precision="2"
-        :step="1.2"
-      />
-    </div>
+  <div
+    v-if="arrange===1"
+    class="box"
+  >
+    <inputNumber
+      v-model="count"
+      @change="changeHandle"
+    />
+  </div>
+  <div
+    v-if="arrange===2"
+    class="box"
+  >
+    <inputNumber
+      v-model="count"
+      :step="3"
+    />
+  </div>
+  <div
+    v-if="arrange===3"
+    class="box"
+  >
+    <inputNumber
+      v-model="count"
+      disable
+    />
+  </div>
+  <div
+    v-if="arrange===4"
+    class="box"
+  >
+    <inputNumber
+      v-model="count"
+      :max="15"
+      :min="1"
+    />
+  </div>
+  <div
+    v-if="arrange===5"
+    class="box"
+  >
+    <inputNumber
+      v-model="coutFix"
+      :max="15"
+      :min="1"
+      :precision="2"
+      :step="1.2"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -41,10 +56,10 @@ export default {
   components: {
     inputNumber
   },
-  props:{
-    arrange :{
-      type:Number,
-      default: 1 || 2 || 3|| 4 || 5
+  props: {
+    arrange: {
+      type: Number,
+      default: 1 || 2 || 3 || 4 || 5
     }
   },
   data () {

@@ -27,23 +27,23 @@
       </scrollbar>
     </div>
     <h2>当元素高度超过最大高度，才会显示滚动条</h2> -->
-    <div class="box3">
-      <button @click="add">
-        Add Item
-      </button>
-      <button @click="onDelete">
-        Delete Item
-      </button>
-      <scrollbar max-height="400px">
-        <p
-          v-for="item in count"
-          :key="item"
-          class="scrollbar-demo-item3"
-        >
-          {{ item }}
-        </p>
-      </scrollbar>
-    </div>
+  <div class="box3">
+    <button @click="add">
+      Add Item
+    </button>
+    <button @click="onDelete">
+      Delete Item
+    </button>
+    <scrollbar max-height="400px">
+      <p
+        v-for="item in count"
+        :key="item"
+        class="scrollbar-demo-item3"
+      >
+        {{ item }}
+      </p>
+    </scrollbar>
+  </div>
   <!-- </div> -->
 </template>
 
