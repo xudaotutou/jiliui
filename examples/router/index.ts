@@ -5,6 +5,10 @@ const routes: RouteRecordRaw[] = [
     redirect: '/button'
   },
   {
+    path: '/tab',
+    component: async () => await import('../components/myTab.vue')
+  },
+  {
     path: '/button',
     component: async () => await import('../components/myButton.vue')
   },

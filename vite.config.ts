@@ -54,17 +54,17 @@ export default defineConfig(({ mode }) => {
     },
     test: {
       globals: true,
-      environment: "happy-dom",
+      environment: "jsdom",
     },
     plugins: [
       vue(),
       (function Outputcss() {
         return {
           name: "vite:Outputcss",
-          apply: "build",
+          // apply: "build",
           async transform(code, id, opt) {
             const [filename, rawQuery] = id.split(`?`, 2);
-            console.log("transform", id);
+            // console.log("transform", id);
             if (
               /\.vue$/.test(filename) && /\.postcss/.test(rawQuery) &&
               /jiliUI\/packages\/components/.test(filename)
@@ -73,13 +73,13 @@ export default defineConfig(({ mode }) => {
               // const output = path.resolve(__dirname, "./dist/style");
               const css_file = `${filename}.css`;
               const jcss_file = `${filename}.cjs`;
-              console.log("transform", jcss_file);
+              // console.log("transform", jcss_file);
               await fs.writeFile(css_file, code);
               await fs.writeFile(
                 jcss_file,
                 `module.exports=${JSON.stringify(jss_cli.cssToJss({ code }))}`,
               );
-              console.log('ok')
+              // console.log('ok')
             }
           },
         };

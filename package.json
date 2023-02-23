@@ -51,6 +51,7 @@
     "eslint-plugin-vue": "^9.9.0",
     "happy-dom": "^8.2.2",
     "husky": "^8.0.3",
+    "jsdom": "^21.1.0",
     "jss": "^10.9.2",
     "jss-cli": "^6.0.2",
     "lint-staged": "^13.1.0",

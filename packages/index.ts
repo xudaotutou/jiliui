@@ -6,7 +6,7 @@ import JCalendar from './components/calendar'
 import JLayout from './components/layout'
 import JProgress from './components/progress'
 import JRProgress from './components/rprogress'
-
+import JTab from './components/tab'
 const components = [
   JButtonBase,
   JCalendar,
@@ -14,7 +14,8 @@ const components = [
   JRProgress,
   JBackToTop,
   JBase,
-  JLayout
+  JLayout,
+  JTab
 ]
 let installed = false
 

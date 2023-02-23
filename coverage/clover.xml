@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676026522761" clover="3.2.0">
-  <project timestamp="1676026522761" name="All files">
-    <metrics statements="77" coveredstatements="72" conditionals="15" coveredconditionals="15" methods="9" coveredmethods="6" elements="101" coveredelements="93" complexity="0" loc="77" ncloc="77" packages="4" files="5" classes="5"/>
+<coverage generated="1676153747761" clover="3.2.0">
+  <project timestamp="1676153747761" name="All files">
+    <metrics statements="94" coveredstatements="89" conditionals="24" coveredconditionals="24" methods="12" coveredmethods="9" elements="130" coveredelements="122" complexity="0" loc="94" ncloc="94" packages="4" files="6" classes="6"/>
     <package name="components.backToTop">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="index.ts" path="D:\dev\code\typescript\jiliUI\packages\components\backToTop\index.ts">
@@ -73,7 +73,19 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="25" coveredstatements="23" conditionals="14" coveredconditionals="14" methods="7" coveredmethods="6"/>
+      <metrics statements="42" coveredstatements="40" conditionals="23" coveredconditionals="23" methods="10" coveredmethods="9"/>
+      <file name="dom.ts" path="D:\dev\code\typescript\jiliUI\packages\utils\dom.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="cond" truecount="3" falsecount="0"/>
+        <line num="2" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="3" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="8" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="1" type="stmt"/>
+      </file>
       <file name="install.ts" path="D:\dev\code\typescript\jiliUI\packages\utils\install.ts">
         <metrics statements="10" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -88,7 +100,7 @@
         <line num="10" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
       <file name="math.ts" path="D:\dev\code\typescript\jiliUI\packages\utils\math.ts">
-        <metrics statements="15" coveredstatements="15" conditionals="12" coveredconditionals="12" methods="4" coveredmethods="4"/>
+        <metrics statements="23" coveredstatements="23" conditionals="14" coveredconditionals="14" methods="5" coveredmethods="5"/>
         <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="2" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="3" count="4" type="stmt"/>
@@ -99,11 +111,19 @@
         <line num="8" count="6" type="stmt"/>
         <line num="9" count="1" type="cond" truecount="3" falsecount="0"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="13" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="15" count="12" type="stmt"/>
+        <line num="16" count="12" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
       </file>
     </package>
   </project>
