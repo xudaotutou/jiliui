@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1676153747761" clover="3.2.0">
+  <project timestamp="1676153747761" name="All files">
+    <metrics statements="94" coveredstatements="89" conditionals="24" coveredconditionals="24" methods="12" coveredmethods="9" elements="130" coveredelements="122" complexity="0" loc="94" ncloc="94" packages="4" files="6" classes="6"/>
+    <package name="components.backToTop">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.ts" path="D:\dev\code\typescript\jiliUI\packages\components\backToTop\index.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.backToTop.src">
+      <metrics statements="30" coveredstatements="30" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
+      <file name="JBackToTop.vue" path="D:\dev\code\typescript\jiliUI\packages\components\backToTop\src\JBackToTop.vue">
+        <metrics statements="30" coveredstatements="30" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.buttons.src">
+      <metrics statements="16" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="JButtonBase.vue" path="D:\dev\code\typescript\jiliUI\packages\components\buttons\src\JButtonBase.vue">
+        <metrics statements="16" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="42" coveredstatements="40" conditionals="23" coveredconditionals="23" methods="10" coveredmethods="9"/>
+      <file name="dom.ts" path="D:\dev\code\typescript\jiliUI\packages\utils\dom.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="cond" truecount="3" falsecount="0"/>
+        <line num="2" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="3" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="8" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="1" type="stmt"/>
+      </file>
+      <file name="install.ts" path="D:\dev\code\typescript\jiliUI\packages\utils\install.ts">
+        <metrics statements="10" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="cond" truecount="1" falsecount="0"/>
+      </file>
+      <file name="math.ts" path="D:\dev\code\typescript\jiliUI\packages\utils\math.ts">
+        <metrics statements="23" coveredstatements="23" conditionals="14" coveredconditionals="14" methods="5" coveredmethods="5"/>
+        <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="3" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="13" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="15" count="12" type="stmt"/>
+        <line num="16" count="12" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

@@ -2,10 +2,13 @@
 module.exports = {
   content: [
     './index.html',
-    './packages/**/*.{vue,js,ts,jsx,tsx}'
+    './packages/**/*.{vue,js,ts,jsx,tsx}',
+    './examples/**/*.{vue,js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {}
   },
-  plugins: []
+  // plugins: [
+  //   require('./packages/style.cjs')
+  // ]
 }

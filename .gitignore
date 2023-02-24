@@ -23,3 +23,6 @@ types
 *.njsproj
 *.sln
 *.sw?
+
+*.vue.css
+*.vue.cjs
