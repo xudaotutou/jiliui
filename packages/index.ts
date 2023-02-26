@@ -7,6 +7,10 @@ import JLayout from './components/layout'
 import JProgress from './components/progress'
 import JRProgress from './components/rprogress'
 import JTab from './components/tab'
+import JScrollbar from './components/scrollbar'
+import JAlert from './components/alert'
+import JInput from './components/input'
+import JIputNumber from './components/input-number'
 const components = [
   JButtonBase,
   JCalendar,
@@ -15,7 +19,11 @@ const components = [
   JBackToTop,
   JBase,
   JLayout,
-  JTab
+  JTab,
+  JScrollbar,
+  JAlert,
+  JInput,
+  JIputNumber
 ]
 let installed = false
 
@@ -32,4 +40,5 @@ export {
 }
 export * from './components/buttons'
 export * from './components/calendar'
+export * from './components/scrollbar'
 // export * from './components/layout'

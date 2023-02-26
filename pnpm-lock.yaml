@@ -38,7 +38,7 @@ specifiers:
   yarnhook: ^0.6.0
 
 dependencies:
-  jiliui: 'link:'
+  jiliui: link:node_modules/jiliui
   vue: 3.2.47
 
 devDependencies:
