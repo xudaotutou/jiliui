@@ -1,14 +1,19 @@
 {
   "name": "jiliui",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xudaotutou/jiliui"
+  },
   "files": [
     "dist",
-    "packages"
+    "packages/style.cjs",
+    "packages/components/**/*.cjs"
   ],
   "exports": {
     ".": {
@@ -81,5 +86,12 @@
       "post-merge": "yarnhook",
       "post-rewrite": "yarnhook"
     }
-  }
+  },
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "tailwindcss",
+    "component",
+    "components"
+  ]
 }

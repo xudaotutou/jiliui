@@ -1,8 +1,12 @@
-# jiliUI
- 
+---
+title: introduction
+lang: zh-CN
+---
+
+## 什么是jiliUI
+
 - 基于 vue + tailwind 开发的组件库。
 - 提供原子类和组件类，在非vue的前端项目(默认使用了tailwindcss)下也能使用
-- css 导出为 tailwind 插件，可以接入 tailwind 的代码补全
 
 ## 如何配置
 
