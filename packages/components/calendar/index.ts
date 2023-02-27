@@ -1,4 +1,5 @@
 import { withInstall } from '~/utils/install'
-import _JCalendarBase from './src/JCalendarBase.vue'
-export const JCalendarBase = withInstall(_JCalendarBase)
-export default JCalendarBase
+import _JCalendar from './src/JCalendar.vue'
+export const JCalendar = withInstall(_JCalendar)
+export default JCalendar
+export type TJCalendar = InstanceType<typeof JCalendar>

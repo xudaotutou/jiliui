@@ -1,11 +1,12 @@
 <script setup lang='ts'>
-import mybutton from '../../packages/components/buttons/index'
+import { JButtonBase } from 'jiliui'
 defineProps<{ msg: string }>()
 </script>
 
 <template>
   <h1>Button组件</h1>
   <!-- <JButtonBase /> -->
+  <JButtonBase />
 </template>
 
 <style scoped>

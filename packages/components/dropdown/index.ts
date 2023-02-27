@@ -1,4 +1,5 @@
 import { withInstall } from '~/utils/install'
-import _JDropdownBase from './src/JDropdownBase.vue'
-export const JDropdownBase = withInstall(_JDropdownBase)
-export default JDropdownBase
+import _JDropdown from './src/JDropdown.vue'
+export const JDropdown = withInstall(_JDropdown)
+export default JDropdown
+export type TJDropdown = InstanceType<typeof JDropdown>

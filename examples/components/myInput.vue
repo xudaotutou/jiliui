@@ -84,7 +84,7 @@
 </template>
 
 <script lang="ts">
-import myInput from '../../packages/components/input/src/inputBase.vue'
+import myInput from '../../packages/components/input/src/JInput.vue'
 import { ref } from 'vue'
 export default {
   components: {

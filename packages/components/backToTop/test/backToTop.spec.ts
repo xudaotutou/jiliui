@@ -26,10 +26,10 @@ describe('back to top', () => {
     const wrapper = mount(btt as any)
     const inner = wrapper.get('a')
     expect(wrapper.classes()).toEqual(
-      expect.arrayContaining(['pointer-events-none', 'absolute', 'h-full'])
+      expect.arrayContaining(['back-to-top-wrapper'])
     )
     expect(inner.classes()).toEqual(
-      expect.arrayContaining(['pointer-events-auto', 'sticky', 'mt-[100vh]', 'inline-block'])
+      expect.arrayContaining(['back-to-top'])
     )
   })
 })

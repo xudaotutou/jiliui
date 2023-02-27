@@ -42,7 +42,6 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "jiliui": "link:",
     "vue": "^3.2.45"
   },
   "devDependencies": {
