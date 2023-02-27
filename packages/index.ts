@@ -17,13 +17,9 @@ const components = [
   JLayout,
   JTab
 ]
-const installed = Symbol('install')
 
 function install (vue: App): void {
-  if ((vue as any)[installed] as boolean) return
-  (vue as any)[installed] = true
   components.forEach((comp) => {
-    console.log(comp)
     if (comp.install !== undefined) comp.install(vue)
   })
 }
