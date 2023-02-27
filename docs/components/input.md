@@ -119,6 +119,6 @@ const input = ref('')
 </template>
 ~~~
 <script setup>
-import myInput from '../../packages/components/input/src/inputBase.vue'
+import myInput from '../../packages/components/input/src/JInput.vue'
 import inputTest from '../../examples/components/myInput.vue'
 </script>

@@ -1,12 +1,13 @@
 <script setup lang='ts'>
-import { JButtonBase } from 'jiliui'
+import JButton from '~/components/buttons/src/JButtonBase.vue'
+
 defineProps<{ msg: string }>()
 </script>
 
 <template>
   <h1>Button组件</h1>
   <!-- <JButtonBase /> -->
-  <JButtonBase />
+  <JButton />
 </template>
 
 <style scoped>

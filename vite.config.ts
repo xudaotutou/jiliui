@@ -64,7 +64,7 @@ export default defineConfig(({ mode }) => {
           // apply: "build",
           async transform(code, id, opt) {
             const [filename, rawQuery] = id.split(`?`, 2);
-            // console.log("transform", id);
+            
             if (
               /\.vue$/.test(filename) && /\.postcss/.test(rawQuery) &&
               /jiliUI\/packages\/components/.test(filename)
@@ -76,9 +76,11 @@ export default defineConfig(({ mode }) => {
                 jcss_file,
                 `module.exports=${JSON.stringify(jss_cli.cssToJss({ code, dashes: true}))}`,
               );
-              return {
-                code: "",
-                map: { mappings: '' }
+              if (mode === 'production') {
+                return {
+                  code: "",
+                  map: { mappings: '' }
+                }
               }
               // console.log('ok')
             }
