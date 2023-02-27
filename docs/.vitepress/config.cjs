@@ -1,5 +1,6 @@
+import postcss from 'postcss'
 import { defineConfig } from 'vitePress'
-
+import path from 'path'
 
 module.exports = defineConfig({
   title: 'Jl Ui',
@@ -11,6 +12,25 @@ module.exports = defineConfig({
   lastUpdated: true,
   markdown: {
     theme: 'dark-plus'
+  },
+  vite: {
+    css: {
+      postcss: {
+        plugins: [
+          require('postcss-import'),
+          require('tailwindcss/nesting'),
+          require("tailwindcss")("./docs/.vitepress/theme/tailwind.config.cjs"),
+          require('autoprefixer'),
+        ],
+      },
+    },
+    resolve: {
+      alias: {
+        "~": path.resolve(__dirname, "../../packages"),
+        "components": path.resolve(__dirname, "../../packages/components"),
+        "~~": path.resolve(__dirname, "../../examples"),
+      },
+    },
   },
   titleTemplate: 'JlUi',
   themeConfig: {
@@ -49,6 +69,10 @@ module.exports = defineConfig({
         {
           text: 'Layout 布局',
           link: '/components/layout'
+        },
+        {
+          text: 'Progress 进度条',
+          link: '/components/progress'
         }
       ]
     }

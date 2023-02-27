@@ -33,5 +33,7 @@ export default {
 }
 export * from './components/buttons'
 export * from './components/calendar'
-
+export * from './components/tab'
+export * from './components/rprogress'
+export * from './components/progress'
 // export * from './components/layout'
