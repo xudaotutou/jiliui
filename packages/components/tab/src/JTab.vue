@@ -16,9 +16,9 @@ toggleLabel(0)
 </script>
 
 <template>
-  <div class="tab">
+  <div class="j-tab">
     <div
-      class="tab-header"
+      class="j-tab-header"
     >
       <label
         v-for="(v, idx) in ids"
@@ -41,7 +41,7 @@ toggleLabel(0)
         :checked="idx===0"
       >
       <section
-        class="tab-content "
+        class="j-tab-content "
       >
         <slot
           :name="`content-${idx}`"
@@ -53,7 +53,7 @@ toggleLabel(0)
 
 <style lang="postcss">
 /* 骨架 */
-.tab {
+.j-tab {
   @apply relative m-1 min-w-fit;
   &-header {
     @apply flex space-x-1;

@@ -1,9 +1,11 @@
-import postcss from 'postcss'
 import { defineConfig } from 'vitePress'
 import path from 'path'
-
+import postcss_import from "postcss-import";
+import postcss_nested from "tailwindcss/nesting";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 module.exports = defineConfig({
-  title: 'JL Ui',
+  title: 'JL UI',
   description: 'vue3 Component Libraries',
   base: '/jili-ui/',
   appearance: false,
@@ -18,10 +20,10 @@ module.exports = defineConfig({
     css: {
       postcss: {
         plugins: [
-          require('postcss-import'),
-          require('tailwindcss/nesting'),
-          require("tailwindcss")("./docs/.vitepress/theme/tailwind.config.cjs"),
-          require('autoprefixer'),
+          postcss_import,
+          postcss_nested,
+          tailwindcss("./docs/.vitepress/theme/tailwind.config.cjs"),
+          autoprefixer
         ],
       },
     },
@@ -33,7 +35,7 @@ module.exports = defineConfig({
       },
     },
   },
-  titleTemplate: 'JLUi',
+  titleTemplate: 'JLUI',
   themeConfig: {
     logo: '../logo/logo@2x.png',
     outlineTitle: 'CONTENTS',
@@ -95,6 +97,10 @@ module.exports = defineConfig({
         {
           text: 'Progress 进度条',
           link: '/components/progress'
+        },
+        {
+          text: 'Tab 容器切换',
+          link: '/components/tab'
         }
       ],
       '/guide': [
