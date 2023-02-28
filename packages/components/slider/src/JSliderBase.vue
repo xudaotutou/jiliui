@@ -1,20 +1,20 @@
 <template>
   <div class="jili-slider-wrapper">
     <input
-      v-model="rate"
       class="jili-slider-inner"
       type="range"
       :min="min"
       :max="max"
       :step="step"
-      :style="{'background-size': `${(rate-min)/(max-min)*100}% 100%`}"
+      :style="{'background-size': `${(value-min)/(max-min)*100}% 100%`}"
+      v-model=value
     >
     <div class="jili-show-tooltip">
       <div
-        class="jili-show-rate"
-        :style="{'left': `${(rate-min)/(max-min)*100}%`, 'display': `${showTooltip?'block':'none'}`}"
+        class="jili-show-value"
+        :style="{'left': `${(value-min)/(max-min)*100}%`, 'display': `${showTooltip?'block':'none'}`}"
       >
-        {{ rate }}
+        {{ value }}
         <div class="jili-delta" />
       </div>
     </div>
@@ -24,19 +24,19 @@
     >
       <div
         class="jili-decline"
-        :class="{'jili-disabled':rate===min}"
-        @click="changeRate(-1)"
+        :class="{'jili-disabled':value===min}"
+        @click="changeValue(-step)"
       >
         -
       </div>
       <input
-        v-model="rate"
+        v-model="value"
         type="number"
       >
       <div
         class="jili-increase"
-        :class="{'jili-disabled':rate===max}"
-        @click="changeRate(1)"
+        :class="{'jili-disabled':value===max}"
+        @click="changeValue(step)"
       >
         +
       </div>
@@ -45,10 +45,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const rate = ref(0)
+import { computed, WritableComputedRef } from 'vue'
+
+const emit = defineEmits(['update:modelValue'])
+
+const value: WritableComputedRef<number> = computed({
+  get() {
+    return props.modelValue
+  },
+  set(value: number ) {
+    emit('update:modelValue', Number(value))
+  }
+})
 
 const props = defineProps({
+  modelValue: {
+    type: Number,
+    require: true,
+    default: 0
+  },
   min: {
     type: Number,
     require: false,
@@ -72,13 +87,13 @@ const props = defineProps({
   showInput: {
     type: Boolean,
     require: false,
-    default: true
+    default: false
   }
 })
-function changeRate (n: number) {
-  if (Number(rate.value) + Number(n) <= Number(props.min)) rate.value = props.min
-  else if (Number(rate.value) + Number(n) >= Number(props.max)) rate.value = props.max
-  else rate.value = Number(rate.value) + Number(n)
+function changeValue (n: number) {
+  if (Number(value.value) + Number(n) <= Number(props.min)) value.value = Number(props.min)
+  else if (Number(value.value) + Number(n) >= Number(props.max)) value.value = Number(props.max)
+  else value.value = Number(value.value) + Number(n)
 }
 </script>
 
@@ -88,15 +103,16 @@ function changeRate (n: number) {
 }
 .jili-slider-wrapper {
   position: relative;
-  width: 1000px;
+  width: 100%;
   height: 50px;
-  padding-top: 30px;
+  padding-right: 130px;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
 
 .jili-slider-inner {
   cursor: grab;
-  width: 500px;
+  width: 100%;
   height: 10px;
 }
 
@@ -108,14 +124,14 @@ function changeRate (n: number) {
 }
 .jili-show-tooltip {
   position: absolute;
-  top: 30px;
+  top: 0;
   left: 0;
-  right: 20px;
+  right: 150px;
   height: 1px;
   opacity: 0;
   transition: .3s;
 }
-.jili-show-rate {
+.jili-show-value {
   position: absolute;
   left: 0%;
   top: -20px;
@@ -138,11 +154,6 @@ function changeRate (n: number) {
   transform: translateX(-50%);
   border: 4px solid transparent;
   border-top: 4px solid #303133;
-}
-.jili-show-input {
-  position: absolute;
-  top: 30px;
-  left: 100%;
 }
 input[type=range] {
   -webkit-appearance: none;
@@ -240,7 +251,9 @@ input[type=range]:focus::-ms-fill-upper {
   background: #fff;
 }
 .jili-show-input {
-  margin-left: 20px;
+  position: absolute;
+  top: 10px;
+  right: 0;
   width: 110px;
   height: 25px;
 }
@@ -274,7 +287,7 @@ input[type='number'] {
   top: 0px;
   transition: .3s;
   background: #f5f7fa;
-  user-select:none;
+  user-select: none;
 }
 .jili-disabled {
   cursor: not-allowed;

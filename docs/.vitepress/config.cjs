@@ -49,6 +49,18 @@ module.exports = defineConfig({
         {
           text: 'Layout 布局',
           link: '/components/layout'
+        },
+        {
+          text: 'Slider 滑块',
+          link: '/components/slider'
+        },
+        {
+          text: 'Dropdown 下拉菜单',
+          link: '/components/dropdown'
+        },
+        {
+          text: 'Menu 菜单',
+          link: '/components/Menu'
         }
       ]
     }

@@ -32,7 +32,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "jiliui": "link:",
+    "jiliui": "file:",
     "vue": "^3.2.45"
   },
   "devDependencies": {
