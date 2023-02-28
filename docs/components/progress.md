@@ -2,6 +2,8 @@
 title: progress
 lang: zh-CN
 ---
+# Progress
+为网站提供导航功能的菜单
 
 ## 柱形进度条 progress
 

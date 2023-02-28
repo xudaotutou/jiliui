@@ -82,7 +82,6 @@ export default defineConfig(({ mode }) => {
                   map: { mappings: '' }
                 }
               }
-              // console.log('ok')
             }
           },
         };

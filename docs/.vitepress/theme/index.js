@@ -1,7 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import './index.css'
 import './tailwind.css'
-import ui from 'jiliui'
+import ui from '../../../dist/index'
 export default {
     ...DefaultTheme,
     enhanceApp(ctx) {

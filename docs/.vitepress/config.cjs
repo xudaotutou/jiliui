@@ -3,13 +3,14 @@ import { defineConfig } from 'vitePress'
 import path from 'path'
 
 module.exports = defineConfig({
-  title: 'Jl Ui',
+  title: 'JL Ui',
   description: 'vue3 Component Libraries',
   base: '/jili-ui/',
   appearance: false,
   ignoreDeadLinks: true,
   lang: 'zh-CN',
   lastUpdated: true,
+  cleanUrls: true,
   markdown: {
     theme: 'dark-plus'
   },
@@ -32,12 +33,12 @@ module.exports = defineConfig({
       },
     },
   },
-  titleTemplate: 'JlUi',
+  titleTemplate: 'JLUi',
   themeConfig: {
     logo: '../logo/logo@2x.png',
     outlineTitle: 'CONTENTS',
     nav: [
-      { text: '指南', link: '/guide' },
+      { text: '指南', link: '/guide/design' },
       {
         text: '组件', link: '/components/input'
       }
@@ -71,8 +72,44 @@ module.exports = defineConfig({
           link: '/components/layout'
         },
         {
+          text: 'Slider 滑块',
+          link: '/components/slider'
+        },
+        {
+          text: 'Dropdown 下拉菜单',
+          link: '/components/dropdown'
+        },
+        {
+          text: 'Menu 菜单',
+          link: '/components/menu'
+        },
+        {
+          text: 'Calendar 日历',
+          link: '/components/calendar'
+        },
+        {
+          text: 'Steps 步骤条',
+          link: '/components/steps'
+
+        },
+        {
           text: 'Progress 进度条',
           link: '/components/progress'
+        }
+      ],
+      '/guide': [
+        {
+          text: '基础使用',
+          items: [
+            {text: '设计', link:'/guide/design'},
+            {text:'快速开始', link:'/guide/start'}
+          ]
+        },
+        {
+          text:'开发',
+          items:[
+            {text:'开发指南', link:'/guide/development'}
+          ]
         }
       ]
     }

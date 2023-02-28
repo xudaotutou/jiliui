@@ -1,15 +1,12 @@
 import type { App } from 'vue'
-import JAlert from './components/alert'
 import JDropdown from './components/dropdown'
 import JDropdownItem from './components/dropdownItem'
 import JDropdownMenu from './components/dropdownMenu'
-import JInput from './components/input'
 import JInputNumber from './components/input-number'
 import JLayout from './components/layout'
 import JMenu from './components/menu'
 import JMenuItem from './components/menuItem'
 import JMenuSub from './components/menuSub'
-import JScrollbar from './components/scrollbar'
 import JSlider from './components/slider'
 import JSteps from './components/steps/src/JSteps.vue'
 import JBackToTop from './components/backToTop'
@@ -19,6 +16,10 @@ import JCalendar from './components/calendar'
 import JProgress from './components/progress'
 import JRProgress from './components/rprogress'
 import JTab from './components/tab'
+import JScrollbar from './components/scrollbar'
+import JAlert from './components/alert'
+import JInput from './components/input'
+import JIputNumber from './components/input-number'
 const components = [
   JAlert,
   JDropdown,
@@ -39,7 +40,11 @@ const components = [
   JBackToTop,
   JBase,
   JLayout,
-  JTab
+  JTab,
+  JScrollbar,
+  JAlert,
+  JInput,
+  JIputNumber
 ]
 
 function install (vue: App): void {
