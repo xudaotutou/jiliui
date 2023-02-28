@@ -1,5 +1,5 @@
 import { withInstall } from '~/utils/install'
-import _JScrollbar from './src/scrollbarBase.vue'
+import _JScrollbar from './src/JScrollbar.vue'
 
 export const JScrollbar = withInstall(_JScrollbar)
 export default JScrollbar

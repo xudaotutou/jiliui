@@ -1,9 +1,16 @@
-# jiliUI
- 
-- 基于 vue + tailwind 开发的组件库。
-- 提供原子类和组件类，在非vue的前端项目(默认使用了tailwindcss)下也能使用
-- css 导出为 tailwind 插件，可以接入 tailwind 的代码补全
+## 安装
+JL Ui目前还处于快速开发迭代中。
 
+~~~ 
+# 选择一个你喜欢的包管理器
+
+# NPM
+$ npm install jiliui --save
+
+# pnpm
+$ pnpm install jiliui
+
+~~~
 ## 如何配置
 
 - tailwind
@@ -23,8 +30,7 @@ module.exports = {
 
 
 ```
-
-- 在使用vue项目导入 vue 组件
+## 在vue3项目中完整引入
   
 ```js{3,5,7}
 // index.ts, 全局导入
@@ -39,6 +45,7 @@ createApp(App)
 
 ```
 
+## 支持按需引入
 ```vue
 <!-- 也可以局部导入 -->
 <script setup lang="ts">

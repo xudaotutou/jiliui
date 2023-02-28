@@ -14,7 +14,7 @@ lang: zh-CN
 ~~~ vue
 <template>
   <h1>Calendar组件</h1>
-  <JL-calendar :value="value" />
+  <JCalendar :value="value" />
 </template>
 
 <script setup lang="ts">
@@ -27,5 +27,5 @@ const value = ref(new Date())
 
 
 <script setup>
-import JCalendarBase from '../../packages/components/calendar/src/JCalendarBase.vue'
+import JCalendarBase from '../../packages/components/calendar/src/JCalendar.vue'
 </script>

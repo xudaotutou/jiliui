@@ -53,7 +53,7 @@ lang: zh-CN
 
 ```vue
 <template>
-  <JMenuBase>
+  <JMenu>
     <JMenuItem active>
       Processing Center
     </JMenuItem>
@@ -69,9 +69,10 @@ lang: zh-CN
       Info
     </JMenuItem>
     <JMenuItem>Orders</JMenuItem>
-  </JMenuBase>
-  <br><br><br><br><br><br><br>
-  <JMenuBase
+  </JMenu>
+
+  
+  <JMenu
     background-color="#545c64"
     text-color="#fff"
     active-text-color="#ffd04b"
@@ -91,12 +92,12 @@ lang: zh-CN
       Info
     </JMenuItem>
     <JMenuItem>Orders</JMenuItem>
-  </JMenuBase>
+  </JMenu>
 </template>
 ```
 
 <script setup>
-import JMenuBase from '../../packages/components/menu/src/JMenuBase.vue'
+import JMenuBase from '../../packages/components/menu/src/JMenu.vue'
 import JMenuItem from '../../packages/components/menuItem/src/JMenuItem.vue'
 import JMenuSub from '../../packages/components/menuSub/src/JMenuSub.vue'
 </script>

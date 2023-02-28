@@ -15,26 +15,26 @@ lang: zh-CN
 ~~~ vue
 <template>
   <div class="jili-steps">
-   <JStepsBase
+   <JSteps
       :active="active"
       finish-status="success"
     >
       <template #header="{ value }">
-        <JStepBase
+        <JStep
           :value="value"
           :num="1"
         />
-        <JStepBase
+        <JStep
           :value="value"
           :num="2"
         />
-        <JStepBase
+        <JStep
           :value="value"
           :num="3"
           end="yes"
         />
       </template>
-    </JStepsBase>
+    </JSteps>
     <button
       class="jili_btn"
       @click="next"
@@ -83,30 +83,30 @@ const next = () => {
  ~~~ vue
 <template>
   <div class="jili-steps">
-    <JStepsBase
+    <JSteps
       :active="active"
       finish-status="success"
     >
       <template #header="{ value }">
-        <JStepBase
+        <JStep
           :value="value"
           :num="1"
           title="Done"
           description="123"
         />
-        <JStepBase
+        <JStep
           :value="value"
           :num="2"
           title="Processing"
         />
-        <JStepBase
+        <JStep
           :value="value"
           :num="3"
           title="step 3"
           end="yes"
         />
       </template>
-    </JStepsBase>
+    </JSteps>
     <button
       class="jili_btn"
       @click="next"
@@ -145,7 +145,7 @@ const next = () => {
 
 <script setup>
 import mySteps from '../../examples/components/mySteps.vue'
-import JStepsBase from '../../packages/components/steps/src/JStepsBase.vue'
-import JStepBase from '../../packages/components/steps/src/JStepBase.vue'
+import JStepsBase from '../../packages/components/steps/src/JSteps.vue'
+import JStepBase from '../../packages/components/steps/src/JStep.vue'
 
 </script>

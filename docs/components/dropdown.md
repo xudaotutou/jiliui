@@ -27,7 +27,7 @@ lang: zh-CN
 
 ```vue
 <template>
-  <JDropdownBase>
+  <JDropdown>
     <span class="jili-dropdown-link">
       Dropdown List
     </span>
@@ -39,7 +39,7 @@ lang: zh-CN
         <JDropdownItem>Action 4</JDropdownItem>
       </JDropdownMenu>
     </template>
-  </JDropdownBase>
+  </JDropdown>
 </template>
 
 <style scoped>
@@ -51,7 +51,7 @@ lang: zh-CN
 ```
 
 <script setup>
-import JDropdownBase from '../../packages/components/dropdown/src/JDropdownBase.vue'
+import JDropdownBase from '../../packages/components/dropdown/src/JDropdown.vue'
 import JDropdownMenu from '../../packages/components/dropdownMenu/src/JDropdownMenu.vue'
 import JDropdownItem from '../../packages/components/dropdownItem/src/JDropdownItem.vue'
 </script>

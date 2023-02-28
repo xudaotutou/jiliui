@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => {
         // Could also be a dictionary or array of multiple entry points
         entry: path.resolve(__dirname, "./packages/index.ts"),
         name: "jiliui",
-        formats: ["es", "cjs"],
+        formats: ["es", "cjs"], 
         fileName: "index",
       },
       rollupOptions: {
@@ -64,22 +64,24 @@ export default defineConfig(({ mode }) => {
           // apply: "build",
           async transform(code, id, opt) {
             const [filename, rawQuery] = id.split(`?`, 2);
-            // console.log("transform", id);
+            
             if (
               /\.vue$/.test(filename) && /\.postcss/.test(rawQuery) &&
-              /jiliUI\/packages\/components/.test(filename)
+              /packages\/components/.test(filename)
             ) {
-              // let _filename = filename.split("/").pop();
-              // const output = path.resolve(__dirname, "./dist/style");
               const css_file = `${filename}.css`;
               const jcss_file = `${filename}.cjs`;
-              // console.log("transform", jcss_file);
               await fs.writeFile(css_file, code);
               await fs.writeFile(
                 jcss_file,
-                `module.exports=${JSON.stringify(jss_cli.cssToJss({ code }))}`,
+                `module.exports=${JSON.stringify(jss_cli.cssToJss({ code, dashes: true}))}`,
               );
-              // console.log('ok')
+              if (mode === 'production') {
+                return {
+                  code: "",
+                  map: { mappings: '' }
+                }
+              }
             }
           },
         };

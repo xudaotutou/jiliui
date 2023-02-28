@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import JDropdownBase from '../../packages/components/dropdown'
-import JDropdownMenu from '../../packages/components/dropdownMenu'
-import JDropdownItem from '../../packages/components/dropdownItem'
+import JDropdownBase from '~/components/dropdown'
+import JDropdownMenu from '~/components/dropdownMenu'
+import JDropdownItem from '~/components/dropdownItem'
 
 </script>
 

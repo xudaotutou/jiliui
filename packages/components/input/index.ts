@@ -1,6 +1,5 @@
 import { withInstall } from '~/utils/install'
-import _JInput from './src/inputBase.vue'
-
+import _JInput from './src/JInput.vue'
 export const JInput = withInstall(_JInput)
 export default JInput
-export type TProgress = InstanceType<typeof _JInput>
+export type TJInput = InstanceType<typeof JInput>

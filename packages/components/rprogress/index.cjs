@@ -1,4 +1,4 @@
-const add_u = require("./src/JRProgress.vue.cjs")['@global']
+const add_c = require("./src/JRProgress.vue.cjs")['@global']
 module.exports = {
-  add_u
+  add_c
 }

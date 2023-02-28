@@ -14,7 +14,7 @@ lang: zh-CN
 
 ```vue
 <template>
-  <JSliderBase v-model="value"/>
+  <JSlider v-model="value"/>
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -32,7 +32,7 @@ const value = ref(0)
 
 ```vue
 <template>
-  <JSliderBase v-model="value" :step="20"/>
+  <JSlider v-model="value" :step="20"/>
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -50,7 +50,7 @@ const value = ref(0)
 
 ```vue
 <template>
-  <JSliderBase v-model="value" show-input/>
+  <JSlider v-model="value" show-input/>
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -68,7 +68,7 @@ const value = ref(0)
 
 ```vue
 <template>
-  <JSliderBase v-model="value"/>
+  <JSlider v-model="value"/>
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -86,7 +86,7 @@ const value = ref(0)
 
 ```vue
 <template>
-  <JSliderBase v-model="value" :show-tooltip="false"/>
+  <JSlider v-model="value" :show-tooltip="false"/>
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -95,7 +95,7 @@ const value = ref(0)
 </script>
 ```
 <script setup>
-import JSliderBase from '../../packages/components/slider/src/JSliderBase.vue'
+import JSliderBase from '../../packages/components/slider/src/JSlider.vue'
 import { ref } from 'vue'
 
 const value1 = ref(0)
