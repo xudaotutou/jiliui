@@ -1,7 +1,6 @@
 import btt from '../index'
 import { mount } from '@vue/test-utils'
 
-
 describe('back to top', () => {
   it('render', () => {
     const wrapper = mount(btt as any)

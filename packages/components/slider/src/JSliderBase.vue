@@ -1,13 +1,13 @@
 <template>
   <div class="jili-slider-wrapper">
     <input
+      v-model="value"
       class="jili-slider-inner"
       type="range"
       :min="min"
       :max="max"
       :step="step"
       :style="{'background-size': `${(value-min)/(max-min)*100}% 100%`}"
-      v-model=value
     >
     <div class="jili-show-tooltip">
       <div
@@ -50,10 +50,10 @@ import { computed, WritableComputedRef } from 'vue'
 const emit = defineEmits(['update:modelValue'])
 
 const value: WritableComputedRef<number> = computed({
-  get() {
+  get () {
     return props.modelValue
   },
-  set(value: number ) {
+  set (value: number) {
     emit('update:modelValue', Number(value))
   }
 })
