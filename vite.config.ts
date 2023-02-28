@@ -67,7 +67,7 @@ export default defineConfig(({ mode }) => {
             
             if (
               /\.vue$/.test(filename) && /\.postcss/.test(rawQuery) &&
-              /jiliUI\/packages\/components/.test(filename)
+              /packages\/components/.test(filename)
             ) {
               const css_file = `${filename}.css`;
               const jcss_file = `${filename}.cjs`;
