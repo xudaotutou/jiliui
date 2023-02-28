@@ -3,6 +3,10 @@ import { ref } from 'vue'
 import JStepsBase from '../../packages/components/steps/src/JStepsBase.vue'
 import JStepBase from '../../packages/components/steps/src/JStepBase.vue'
 
+const props: any = defineProps({
+  kinds: String
+})
+
 const active = ref(1)
 
 const next = () => {
@@ -12,6 +16,28 @@ const next = () => {
 <template>
   <div class="jili-steps">
     <JStepsBase
+      v-show="props.kinds === 'base'"
+      :active="active"
+      finish-status="success"
+    >
+      <template #header="{ value }">
+        <JStepBase
+          :value="value"
+          :num="1"
+        />
+        <JStepBase
+          :value="value"
+          :num="2"
+        />
+        <JStepBase
+          :value="value"
+          :num="3"
+          end="yes"
+        />
+      </template>
+    </JStepsBase>
+    <JStepsBase
+      v-show="props.kinds === 'description'"
       :active="active"
       finish-status="success"
     >

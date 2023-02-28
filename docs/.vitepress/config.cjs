@@ -9,6 +9,7 @@ module.exports = defineConfig({
   ignoreDeadLinks: true,
   lang: 'zh-CN',
   lastUpdated: true,
+  cleanUrls: true,
   markdown: {
     theme: 'dark-plus'
   },
@@ -60,7 +61,15 @@ module.exports = defineConfig({
         },
         {
           text: 'Menu 菜单',
-          link: '/components/Menu'
+          link: '/components/menu'
+        },
+        {
+          text:'Calendar 日历',
+          link: '/components/calendar'
+        },
+        {
+          text: 'Steps 步骤条',
+          link: '/components/steps'
         }
       ]
     }
