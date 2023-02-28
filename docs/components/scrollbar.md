@@ -121,8 +121,8 @@ const onDelete = () => {
 ~~~
 
 <script setup>
-import myScrollbar from '../../packages/components/scrollbar/src/JScrollbar.vue'
-import scrollbarTest from '../../examples/components/myScrollbar.vue'
+import myScrollbar from '~/components/scrollbar/src/JScrollbar.vue'
+import scrollbarTest from '~~/components/myScrollbar.vue'
 </script>
 <style scoped>
 * {
