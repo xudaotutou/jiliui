@@ -1,4 +1,5 @@
 import { withInstall } from '~/utils/install'
-import _JSliderBase from './src/JSliderBase.vue'
-export const JSliderBase = withInstall(_JSliderBase)
-export default JSliderBase
+import _JSlider from './src/JSlider.vue'
+export const JSlider = withInstall(_JSlider)
+export default JSlider
+export type TJSlider = InstanceType<typeof JSlider>

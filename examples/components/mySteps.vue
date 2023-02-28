@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import JStepsBase from '../../packages/components/steps/src/JStepsBase.vue'
-import JStepBase from '../../packages/components/steps/src/JStepBase.vue'
+import JStepsBase from '../../packages/components/steps/src/JSteps.vue'
+import JStepBase from '../../packages/components/steps/src/JStep.vue'
 
 const active = ref(1)
 

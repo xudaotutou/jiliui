@@ -7,10 +7,10 @@ withDefaults(defineProps<{
 
 </script>
 <template>
-  <div class="pointer-events-none absolute h-full">
+  <div class="back-to-top-wrapper">
     <a
       href="#top"
-      class="pointer-events-auto sticky  mt-[100vh] inline-block"
+      class="back-to-top"
       :style="{top:`${top}vh`}"
     >
       <slot>
@@ -25,6 +25,13 @@ withDefaults(defineProps<{
 @media screen and (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+.back-to-top {
+  @apply inline-block sticky pointer-events-auto;
+  margin-top: 100vh;
+  &-wrapper {
+  @apply absolute h-full pointer-events-none;
   }
 }
 </style>

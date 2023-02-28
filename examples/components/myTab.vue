@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { JTab } from 'jiliui'
+import JTab from '~/components/tab/src/JTab.vue'
 </script>
 
 <template>
-  <Jtab
+  <JTab
     :tab-n="2"
     class=" h-40"
   >
@@ -25,7 +25,7 @@ import { JTab } from 'jiliui'
         ctx1
       </div>
     </template>
-  </Jtab>
+  </JTab>
 </template>
 
 <style scoped>

@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import myInput from '../../input/src/inputBase.vue'
+import myInput from '../../input/src/JInput.vue'
 import {
   defineComponent,
   ref,

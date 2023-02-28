@@ -64,24 +64,23 @@ export default defineConfig(({ mode }) => {
           // apply: "build",
           async transform(code, id, opt) {
             const [filename, rawQuery] = id.split(`?`, 2);
-            // console.log("transform", id);
+            
             if (
               /\.vue$/.test(filename) && /\.postcss/.test(rawQuery) &&
               /jiliUI\/packages\/components/.test(filename)
             ) {
-              // let _filename = filename.split("/").pop();
-              // const output = path.resolve(__dirname, "./dist/style");
               const css_file = `${filename}.css`;
               const jcss_file = `${filename}.cjs`;
-              // console.log("transform", jcss_file);
               await fs.writeFile(css_file, code);
               await fs.writeFile(
                 jcss_file,
-                `module.exports=${JSON.stringify(jss_cli.cssToJss({ code }))}`,
+                `module.exports=${JSON.stringify(jss_cli.cssToJss({ code, dashes: true}))}`,
               );
-              return {
-                code: "",
-                map: { mappings: '' }
+              if (mode === 'production') {
+                return {
+                  code: "",
+                  map: { mappings: '' }
+                }
               }
               // console.log('ok')
             }
