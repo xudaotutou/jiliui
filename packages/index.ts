@@ -19,7 +19,6 @@ import JTab from './components/tab'
 import JScrollbar from './components/scrollbar'
 import JAlert from './components/alert'
 import JInput from './components/input'
-import JIputNumber from './components/input-number'
 const components = [
   JAlert,
   JDropdown,
@@ -40,11 +39,7 @@ const components = [
   JBackToTop,
   JBase,
   JLayout,
-  JTab,
-  JScrollbar,
-  JAlert,
-  JInput,
-  JIputNumber
+  JTab
 ]
 
 function install (vue: App): void {
