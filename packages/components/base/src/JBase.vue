@@ -6,7 +6,7 @@
     scroll-behavior: smooth;
   }
 }
- 
+
 #app {
   /* 兼容backtop */
     position: relative;

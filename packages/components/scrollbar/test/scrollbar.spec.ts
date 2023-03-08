@@ -21,7 +21,7 @@ describe('scrollbar', () => {
         height
       }
     })
-    const wrap:any = wrapper.get('.jili-scrollbar_wrap')
+    const wrap: any = wrapper.get('.jili-scrollbar_wrap')
     expect(wrap.element.style.height).toBe(height)
   })
 
