@@ -118,7 +118,39 @@ const input = ref('')
 
 </template>
 ~~~
+
+## markdown输入框
+可通过 `type` 属性指定markdown输入框, 通过 ` @markdown `事件拿到markdown的结果,然后通过v-html指令将结果附着到你想要的地方 展示markdown语法
+<MarkDown></MarkDown>
+
+~~~vue
+<template>
+  <JInput type="markdown" @markdown="onMarkDown"/>
+  <div class="box" v-html="result"></div>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+const result = ref('')
+function onMarkDown(e) {
+  result.value = e
+}
+</script>
+
+<style scoped>
+.box {
+  width: 100%;
+  height: 200px;
+  padding: 15px;
+  margin-top: 10px;
+  background-color: #292b30;
+  color: #ffcd32;
+}
+</style>
+~~~
+
 <script setup>
 import myInput from '../../packages/components/input/src/JInput.vue'
 import inputTest from '../../examples/components/myInput.vue'
+import MarkDown from '../../examples/components/myMarkDownInput.vue'
 </script>

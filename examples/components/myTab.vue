@@ -21,7 +21,7 @@ import JTab from '~/components/tab/src/JTab.vue'
     <template
       #content-1
     >
-      <div class="bg-yellow-50">
+      <div>
         ctx1
       </div>
     </template>

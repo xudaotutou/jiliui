@@ -20,6 +20,7 @@ specifiers:
   jss: ^10.9.2
   jss-cli: ^6.0.2
   lint-staged: ^13.1.0
+  marked: ^4.2.12
   postcss: ^8.4.21
   postcss-cli: ^10.1.0
   postcss-import: ^15.1.0
@@ -59,6 +60,7 @@ devDependencies:
   jss: 10.9.2
   jss-cli: 6.0.2
   lint-staged: 13.1.0
+  marked: registry.npmmirror.com/marked/4.2.12
   postcss: 8.4.21
   postcss-cli: 10.1.0_postcss@8.4.21
   postcss-import: 15.1.0_postcss@8.4.21
@@ -5137,6 +5139,14 @@ packages:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/graceful-fs/-/graceful-fs-4.2.10.tgz}
     name: graceful-fs
     version: 4.2.10
+    dev: true
+
+  registry.npmmirror.com/marked/4.2.12:
+    resolution: {integrity: sha512-yr8hSKa3Fv4D3jdZmtMMPghgVt6TWbk86WQaWhDloQjRSQhMMYCAro7jP7VDJrjjdV8pxVxMssXS8B8Y5DZ5aw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/marked/-/marked-4.2.12.tgz}
+    name: marked
+    version: 4.2.12
+    engines: {node: '>= 12'}
+    hasBin: true
     dev: true
 
   registry.npmmirror.com/source-map/0.5.7:
