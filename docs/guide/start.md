@@ -24,7 +24,7 @@ module.exports = {
     extend: {}
   },
   plugins: [
-    require('./packages/style.cjs')
+    require('jiliui/tw-style')
   ]
 }
 
@@ -35,7 +35,7 @@ module.exports = {
 ```js{3,5,7}
 // index.ts, 全局导入
 import { createApp } from 'vue'
-import './style.css'
+import 'jiliui/style'
 import App from './App.vue'
 import ui from 'jiliui'
 createApp(App)
