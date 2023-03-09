@@ -22,10 +22,10 @@
     },
     "./tw-style": {
       "require": "./packages/style.cjs",
-      "import":"./packages/style.cjs"
+      "import": "./packages/style.cjs"
     },
-    "./style":{
-      "import":"./dist/index.css"
+    "./style": {
+      "import": "./dist/index.css"
     }
   },
   "scripts": {
@@ -64,6 +64,7 @@
     "jss": "^10.9.2",
     "jss-cli": "^6.0.2",
     "lint-staged": "^13.1.0",
+    "marked": "^4.2.12",
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",

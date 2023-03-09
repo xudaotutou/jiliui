@@ -1,6 +1,6 @@
 <template>
   <div class="inline-container">
-    <template v-if="type === 'textarea'">
+    <template v-if="type === 'textarea' || type === 'markdown'">
       <textarea
         class="jl-textarea"
         :class="styleClass"
@@ -11,14 +11,8 @@
       />
     </template>
     <template v-else>
-      <div
-        class="inline-container"
-        :class="fixBorder"
-      >
-        <div
-          v-if="$slots.prepend"
-          class="jl-input-prepend"
-        >
+      <div class="inline-container" :class="fixBorder">
+        <div v-if="$slots.prepend" class="jl-input-prepend">
           <slot name="prepend" />
         </div>
         <div class="jl-input-outer">
@@ -30,17 +24,12 @@
             :value="modelValue"
             :disabled="disabled"
             @input="onInput"
+          />
+          <span v-if="showClear" class="jl-input-clear" @click="clearItem"
+            >x</span
           >
-          <span
-            v-if="showClear"
-            class="jl-input-clear"
-            @click="clearItem"
-          >x</span>
         </div>
-        <div
-          v-if="$slots.append"
-          class="jl-input-append"
-        >
+        <div v-if="$slots.append" class="jl-input-append">
           <slot name="append" />
         </div>
       </div>
@@ -49,82 +38,89 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, toRefs } from 'vue'
+import { computed, defineComponent, ref, toRefs } from "vue";
+import { marked } from "marked";
 export default defineComponent({
   props: {
     modelValue: {
       type: String,
-      default: ''
+      default: "",
     },
     type: {
       type: String,
-      default: 'text',
-      validator: (value:any) => {
-        return ['text', 'textarea'].includes(value)
-      }
+      default: "text",
+      validator: (value: any) => {
+        return ["text", "textarea", "markdown"].includes(value);
+      },
     },
     size: {
       type: String,
-      default: '',
+      default: "",
       validator: (value) => {
-        return ['', 'medium', 'small'].includes(value as any)
-      }
+        return ["", "medium", "small"].includes(value as any);
+      },
     },
     clearable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     center: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  emits: ['update:modelValue', 'input'],
-  setup (props, { emit, attrs, slots }) {
+  emits: ["update:modelValue", "input", "markdown"],
+  setup(props, { emit, attrs, slots }) {
     // props
     const { modelValue, type, size, clearable, disabled, center } =
-      toRefs(props)
+      toRefs(props);
 
     // methods
-    function onInput (e:any) {
-      emit('update:modelValue', e.target.value)
-      emit('input', e.target.value)
+    function onInput(e: any) {
+      emit("update:modelValue", e.target.value);
+      emit("input", e.target.value);
+      if (type.value === "markdown") {
+        let output = marked(e.target.value);
+        emit('markdown', output)
+      }
     }
-    function clearItem () {
-      emit('update:modelValue', '')
+    function clearItem() {
+      emit("update:modelValue", "");
     }
 
     // computed
     const styleClass = computed(() => {
       return {
-        [`jl-input--${size.value}`]: size.value && type.value !== 'textarea',
-        'is-disabled': disabled.value,
-        'is-center': center.value
-      }
-    })
+        [`jl-input--${size.value}`]:
+          size.value &&
+          (type.value !== "textarea" || type.value !== "markdown"),
+        "is-disabled": disabled.value,
+        "is-center": center.value,
+      };
+    });
     const showClear = computed(() => {
-      return clearable.value && modelValue.value !== ''
-    })
+      return clearable.value && modelValue.value !== "";
+    });
     const fixBorder = computed(() => {
       return {
-        'has-prepend': slots.prepend,
-        'has-append': slots.append
-      }
-    })
+        "has-prepend": slots.prepend,
+        "has-append": slots.append,
+      };
+    });
 
     return {
       showClear,
       styleClass,
       fixBorder,
       onInput,
-      clearItem
-    }
-  }
-})
+      clearItem,
+    };
+  },
+});
 </script>
 
 <style scoped>
