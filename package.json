@@ -1,14 +1,19 @@
 {
   "name": "jiliui",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xudaotutou/jiliui"
+  },
   "files": [
     "dist",
-    "packages"
+    "packages/style.cjs",
+    "packages/components/**/*.cjs"
   ],
   "exports": {
     ".": {
@@ -37,7 +42,6 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "jiliui": "link:",
     "vue": "^3.2.45"
   },
   "devDependencies": {
@@ -81,5 +85,12 @@
       "post-merge": "yarnhook",
       "post-rewrite": "yarnhook"
     }
-  }
+  },
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "tailwindcss",
+    "component",
+    "components"
+  ]
 }

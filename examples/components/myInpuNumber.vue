@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import inputNumber from '../../packages/components/input-number/src/inputNumberBase.vue'
+import inputNumber from '../../packages/components/input-number/src/JInputNumber.vue'
 export default {
   components: {
     inputNumber

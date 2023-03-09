@@ -3,7 +3,7 @@ const Jlayout = require('./components/layout/index.cjs')
 const JBackToTop = require('./components/backToTop/index.cjs')
 const JProgress = require('./components/progress/index.cjs')
 const JRProgress = require('./components/rprogress/index.cjs')
-const JTab = require('./components/rprogress/index.cjs')
+const JTab = require('./components/tab/index.cjs')
 module.exports = require("tailwindcss/plugin")(function ({
   addUtilities,
   matchUtilities,

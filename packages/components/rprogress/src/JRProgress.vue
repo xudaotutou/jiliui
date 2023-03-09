@@ -43,7 +43,7 @@ const myStyle = computed(() => {
     class="radial-progress"
     :style="myStyle"
   >
-    60%
+    <slot />
   </div>
 </template>
 

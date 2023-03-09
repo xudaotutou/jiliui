@@ -5,11 +5,6 @@ module.exports = {
     { raw: '' }
   ],
   safelist:[
-    // {
-    //   pattern:/.*/,
-    // },{
-    //   pattern://
-    // }
   ],
   theme: {
     extend: {

@@ -13,9 +13,9 @@ lang: zh-CN
 
 ~~~ vue
 <template>
-  <Jl-scrollbar height="400px">
+  <JScrollbar height="400px">
     <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
-  </Jl-scrollbar>
+  </JScrollbar>
 </template>
 
 <style scoped>
@@ -46,13 +46,13 @@ lang: zh-CN
 
 ~~~ vue
 <template>
-  <Jl-scrollbar>
+  <JScrollbar>
     <div class="scrollbar-flex-content">
       <p v-for="item in 50" :key="item" class="scrollbar-demo-item">
         {{ item }}
       </p>
     </div>
-  </Jl-scrollbar>
+  </JScrollbar>
 </template>
 
 <style scoped>
@@ -82,13 +82,13 @@ lang: zh-CN
 
 ~~~ vue
 <template>
-  <Jl-button @click="add">Add Item</Jl-button>
-  <Jl-button @click="onDelete">Delete Item</Jl-button>
-  <Jl-scrollbar max-height="400px">
+  <JButton @click="add">Add Item</JButton>
+  <JButton @click="onDelete">Delete Item</JButton>
+  <JScrollbar max-height="400px">
     <p v-for="item in count" :key="item" class="scrollbar-demo-item">
       {{ item }}
     </p>
-  </Jl-scrollbar>
+  </JScrollbar>
 </template>
 
 <script lang="ts" setup>
@@ -121,8 +121,8 @@ const onDelete = () => {
 ~~~
 
 <script setup>
-import myScrollbar from '../../packages/components/scrollbar/src/scrollbarBase.vue'
-import scrollbarTest from '../../examples/components/myScrollbar.vue'
+import myScrollbar from '~/components/scrollbar/src/JScrollbar.vue'
+import scrollbarTest from '~~/components/myScrollbar.vue'
 </script>
 <style scoped>
 * {

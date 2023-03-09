@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, CSSProperties, inject } from 'vue'
+import { computed, inject } from 'vue'
 
 const backgroundColor = inject('backgroundColor')
 const textColor = inject('textColor')
@@ -54,6 +54,8 @@ const style = computed(() => {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .1);
   overflow: hidden;
+  position: relative;
+  z-index: 999;
 }
 .jili-menu-sub:hover .jili-menu-sub-list{
   opacity: 1;

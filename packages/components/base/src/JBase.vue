@@ -9,6 +9,6 @@
 
 #app {
   /* 兼容backtop */
-  position: relative;
+    position: relative;
 }
 </style>

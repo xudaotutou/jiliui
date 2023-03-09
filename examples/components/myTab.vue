@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import tab from '~/components/tab'
+import JTab from '~/components/tab/src/JTab.vue'
 </script>
 
 <template>
-  <tab
+  <JTab
     :tab-n="2"
     class=" h-40"
   >
@@ -21,11 +21,11 @@ import tab from '~/components/tab'
     <template
       #content-1
     >
-      <div class="bg-yellow-50">
+      <div>
         ctx1
       </div>
     </template>
-  </tab>
+  </JTab>
 </template>
 
 <style scoped>

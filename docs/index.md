@@ -1,7 +1,7 @@
 ---
 layout: home
 hero:
-  name: Jl Ui
+  name: JL Ui
   tagline: vue3 Component Libraries
   image:
     src: ./logo/logo@2x.png

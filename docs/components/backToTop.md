@@ -9,6 +9,8 @@ lang: zh-CN
 ## 基于 vue props
 
 - 用 top 插槽提供 top=${top}vh样式，默认是 90
+- 目前仅仅支持在app根元素下使用
+
 
 ``` html
 <div id="app">
@@ -23,7 +25,7 @@ lang: zh-CN
 
 ## 基于提供的组件类
 
-- 更改top-[] 原子类可以自定义在距离视口
+- 更改 top-[] 原子类可以自定义在距离视口
 - href="#top" 必须，html5标准提供的返回顶部
 - a标签已经转化inline-block
 

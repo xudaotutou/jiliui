@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import JCalendarBase from '../../packages/components/calendar'
+import JCalendar from '~/components/calendar/src/JCalendar.vue'
 
 const value = ref(new Date())
 </script>
 
 <template>
   <h1>Calendar组件</h1>
-  <JCalendarBase :value="value" />
+  <JCalendar :value="value" />
 </template>
 
 <style scoped>

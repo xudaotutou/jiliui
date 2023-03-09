@@ -9,7 +9,7 @@ lang: zh-CN
 <myInput placeholder="Please Input" v-model="input"/>
 ~~~ vue
 <template>
-    <Jl-input placeholder="Please Input" v-model="input" />
+    <JInput placeholder="Please Input" v-model="input" />
 </template>
 
 <script lang="ts" setup>
@@ -23,7 +23,7 @@ const input = ref('')
 <myInput placeholder="Please Input" :disabled="true" v-model="input"/>
 ~~~ vue
 <template>
-  <Jl-input v-model="input" disabled placeholder="Please input" />
+  <JInput v-model="input" disabled placeholder="Please input" />
 </template>
 
 <script lang="ts" setup>
@@ -37,7 +37,7 @@ const input = ref('')
 <inputTest></inputTest>
 ~~~ vue
 <template>
-  <Jl-input v-model="input" clearable placeholder="Please input"  />
+  <JInput v-model="input" clearable placeholder="Please input"  />
 </template>
 
 <script lang="ts" setup>
@@ -51,7 +51,7 @@ const input = ref('hello world')
 <myInput v-model="input" type="textarea" placeholder="Input TextArea" />
 ~~~ vue
 <template>
-  <Jl-input v-model="input" type="textarea" placeholder="Input TextArea" />
+  <JInput v-model="input" type="textarea" placeholder="Input TextArea" />
 </template>
 
 <script lang="ts" setup>
@@ -69,9 +69,9 @@ const input = ref('')
 <myInput size="small" />
 ~~~ vue
 <template>
-  <Jl-input v-model="input"  />
-  <Jl-input v-model="input" size="medium" />
-  <Jl-input v-model="input" size="small" />
+  <JInput v-model="input"  />
+  <JInput v-model="input" size="medium" />
+  <JInput v-model="input" size="small" />
 </template>
 
 <script lang="ts" setup>
@@ -85,7 +85,7 @@ const input = ref('')
 <myInput v-model="input" placeholder="Please Input" center/>
 ~~~ vue
 <template>
-  <Jl-input v-model="input" placeholder="Please Input" center />
+  <JInput v-model="input" placeholder="Please Input" center />
 </template>
 
 <script lang="ts" setup>
@@ -104,21 +104,21 @@ const input = ref('')
 ~~~ vue
 <template>
 
-<Jl-input placeholder="Please Input" center>
+<JInput placeholder="Please Input" center>
     <template #prepend>https://</template>
-</Jl-input>
+</JInput>
 
-<Jl-input placeholder="Please Input"  center>
+<JInput placeholder="Please Input"  center>
     <template #append>.com</template>
-</Jl-input>
+</JInput>
 
-<Jl-input placeholder="Please Input" center >
+<JInput placeholder="Please Input" center >
     <template #prepend>htpps://</template><template #append>.com</template>
-</Jl-input>
+</JInput>
 
 </template>
 ~~~
 <script setup>
-import myInput from '../../packages/components/input/src/inputBase.vue'
+import myInput from '../../packages/components/input/src/JInput.vue'
 import inputTest from '../../examples/components/myInput.vue'
 </script>

@@ -10,7 +10,7 @@ lang: zh-CN
 <myInputNumber :arrange="1"></myInputNumber>
 ~~~ vue
 <template>
-  <Jl-input-number v-model="num"  @change="handleChange" />
+  <JInputNumber v-model="num"  @change="handleChange" />
 </template>
 
 <script lang="ts" setup>
@@ -27,7 +27,7 @@ const handleChange = (value: number) => {
 <myInputNumber :arrange="3"></myInputNumber>
 ~~~ vue
 <template>
-  <Jl-input-number v-model="num" :disabled="true" />
+  <JInputNumber v-model="num" :disabled="true" />
 </template>
 
 <script lang="ts" setup>
@@ -41,7 +41,7 @@ const num = ref(5)
 <myInputNumber :arrange="4"></myInputNumber>
 ~~~ vue
 <template>
-  <Jl-input-number v-model="num" :min="1" :max="15" />
+  <JInputNumber v-model="num" :min="1" :max="15" />
 </template>
 
 <script lang="ts" setup>
@@ -55,7 +55,7 @@ const num = ref(5)
 <myInputNumber :arrange="2"></myInputNumber>
 ~~~ vue
 <template>
-  <Jl-input-number v-model="num" :step="3" />
+  <JInputNumber v-model="num" :step="3" />
 </template>
 
 <script lang="ts" setup>
@@ -70,7 +70,7 @@ const num = ref(5)
 <myInputNumber :arrange="5"></myInputNumber>
 ~~~ vue
 <template>
-  <Jl-input-number v-model="num" :step="1.2" :max="15" :min="1" :precision="2" />
+  <JInputNumber v-model="num" :step="1.2" :max="15" :min="1" :precision="2" />
 </template>
 
 <script lang="ts" setup>
