@@ -92,13 +92,11 @@ export default {
   },
   setup () {
     const msg = ref('hello world')
-    const input = ref('')
     function oninput (e:any) {
       console.log(e)
     }
     return {
       msg,
-      input,
       oninput
     }
   }

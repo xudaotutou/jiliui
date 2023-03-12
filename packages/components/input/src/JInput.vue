@@ -39,6 +39,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, toRefs } from "vue";
+import xss from "xss";
 import { marked } from "marked";
 export default defineComponent({
   props: {
@@ -84,8 +85,14 @@ export default defineComponent({
       emit("update:modelValue", e.target.value);
       emit("input", e.target.value);
       if (type.value === "markdown") {
-        let output = marked(e.target.value);
-        emit('markdown', output)
+        // 预防xss
+        const option = {
+          stripIgnoreTagBody: ["script", "noscript", "style"],
+        };
+        const myXss = new (xss as any).FilterXSS(option);
+        e.target.value = myXss.process(e.target.value);
+        const output = marked(e.target.value);
+        emit("markdown", output);
       }
     }
     function clearItem() {
@@ -97,7 +104,7 @@ export default defineComponent({
       return {
         [`jl-input--${size.value}`]:
           size.value &&
-          (type.value !== "textarea" || type.value !== "markdown"),
+          (type.value !== "textarea" && type.value !== "markdown"),
         "is-disabled": disabled.value,
         "is-center": center.value,
       };

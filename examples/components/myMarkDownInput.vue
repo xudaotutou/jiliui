@@ -1,37 +1,37 @@
 <template>
   <div>
-    <myInput type="markdown" @markdown="onMark"></myInput>
+    <myInput
+      type="markdown"
+      @markdown="onMark"
+    />
     <div
       class="box"
       v-html="mark"
-    ></div>
+    />
   </div>
 </template>
 
 <script lang="ts">
-import myInput from "../../packages/components/input/src/JInput.vue";
-import { ref } from "vue";
+import myInput from '../../packages/components/input/src/JInput.vue'
+import { ref } from 'vue'
 export default {
   components: {
-    myInput,
+    myInput
   },
-  setup() {
-    const msg = ref("hello world");
-    const input = ref("");
-    const mark = ref("");
-    function onMark(e) {
-      mark.value = e;
+  setup () {
+    const msg = ref('hello world')
+    const mark = ref('')
+    function onMark (e:any) {
+      mark.value = e
     }
     return {
       msg,
-      input,
       onMark,
-      mark,
-    };
-  },
-};
+      mark
+    }
+  }
+}
 </script>
-
 
 <style scoped>
 .box {
