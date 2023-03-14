@@ -1,3 +1,5 @@
+import "./chunk-RSJERJUL.js";
+
 // node_modules/.pnpm/registry.npmmirror.com+marked@4.2.12/node_modules/marked/lib/marked.esm.js
 function getDefaults() {
   return {

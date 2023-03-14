@@ -120,7 +120,7 @@ const input = ref('')
 ~~~
 
 ## markdown输入框
-可通过 `type` 属性指定markdown输入框, 通过 ` @markdown `事件拿到markdown的结果,然后通过v-html指令将结果附着到你想要的地方 展示markdown语法
+可通过 `type` 属性指定markdown输入框, 通过 ` @markdown `事件拿到markdown的结果,然后通过v-html指令将结果附着到你想要的地方 展示markdown语法 (已经预防 XSS 攻击)
 <MarkDown></MarkDown>
 
 ~~~vue
